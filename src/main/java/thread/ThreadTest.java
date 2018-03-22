@@ -40,6 +40,7 @@ public class ThreadTest {
   static class HelloThread extends Thread {
     @Override
     public void run() {
+      super.run();
       while(!shutdown){
         // do nothing
       }

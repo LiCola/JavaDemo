@@ -10,7 +10,12 @@ public class ConcurrentHashMapTest {
 
 
   public static final void main(String[] args) {
-    testIterator();
+//    testIterator();
+    ConcurrentHashMap<String,Integer> concurrentHashMap=new ConcurrentHashMap<>();
+    concurrentHashMap.put("a",1);
+    concurrentHashMap.put("b",2);
+
+    System.out.println(concurrentHashMap.size());
   }
 
   private static void testIterator() {

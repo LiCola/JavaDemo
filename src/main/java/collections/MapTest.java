@@ -13,10 +13,10 @@ import java.util.TreeMap;
 public class MapTest {
 
   public static final void main(String[] args) {
-    testMap();
+//    testMap();
 //    testTree();
 //    testSet();
-//    testLinked();
+    testLinked();
   }
 
   private static abstract class EmptyBase{
@@ -103,11 +103,47 @@ public class MapTest {
   }
 
   private static void testMap() {
-    HashMap<SameHash,String> map=new HashMap<>();
-    for (int i = 0; i < 128; i++) {
-      map.put(new SameHash(i),"value:"+i);
+//    HashMap<SameHash,String> map=new HashMap<>();
+//    for (int i = 0; i < 128; i++) {
+//      map.put(new SameHash(i),"value:"+i);
+//    }
+//
+//    System.out.println(map.entrySet());
+
+    OverHashMap<OverEquals,String> overEqualsStringHashMap=new OverHashMap<>();
+
+    OverEquals overEquals = new OverEquals(10);
+    overEqualsStringHashMap.put(overEquals,"o10");
+    overEqualsStringHashMap.put(new OverEquals(10),"o20");
+
+
+  }
+
+  public static class OverHashMap<K extends OverEquals,V> extends HashMap<K,V>{
+
+  }
+
+  public static class OverEquals {
+    public int value;
+
+    public OverEquals(int value) {
+      this.value = value;
     }
 
-    System.out.println(map.entrySet());
+    public boolean equals(OverEquals o) {
+      System.out.println("override method different parameter equals invoke");
+      return false;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      System.out.println("over method equals invoke:"+obj);
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      return 10;
+    }
   }
 }

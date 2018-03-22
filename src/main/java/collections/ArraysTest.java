@@ -1,6 +1,8 @@
 package collections;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,6 +22,7 @@ public class ArraysTest {
     for (Object o : list) {
       System.out.println(o.toString());
     }
+
   }
 
   private static void testStrings() {

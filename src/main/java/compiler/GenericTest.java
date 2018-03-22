@@ -1,6 +1,6 @@
-import java.io.Serializable;
+package compiler;
+
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Created by LiCola on 2017/6/5.
@@ -11,6 +11,9 @@ public class GenericTest {
     Pair<String,Integer> pair=new Pair<>("普通泛型的定义",1);
     String first = pair.getFirst();
     System.out.println("pair first:"+first);
+
+    @SuppressWarnings("unchecked")
+    Pair<Object,String>[] pairs=(Pair<Object, String>[]) new Pair[3];//不能直接创建泛型数组 只能先创建无泛型的数组 然后强制类型转换
 
     NumberPair<Integer,Double> numberPair= new NumberPair<>(1, 1.5);
     double sum = numberPair.sum();

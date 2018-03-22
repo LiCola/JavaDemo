@@ -5,17 +5,20 @@ import java.util.Map.Entry;
 
 /**
  * Created by LiCola on 2017/9/4.
+ * 继承LinkedHashMap实现LruCache。
+ * 只需要确定大小，然后重写删除最旧节点的返回值
  */
-public class LRUCache<K,V> extends LinkedHashMap<K,V>{
-  private int maxEntries;
+public class LRUCache<K, V> extends LinkedHashMap<K, V> {
 
-  public LRUCache( int maxEntries) {
-    super(16,0.75f,true);
-    this.maxEntries = maxEntries;
+  private int max;
+
+  public LRUCache(int max) {
+    super(16, 0.75f, true);
+    this.max = max;
   }
 
   @Override
   protected boolean removeEldestEntry(Entry<K, V> eldest) {
-    return size()>maxEntries;
+    return size() > max;
   }
 }
