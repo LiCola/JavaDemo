@@ -14,6 +14,11 @@ public class ClassTest {
         throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
       test1();
 
+      try {
+        Class<?> aClass = Class.forName("String.");
+      } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+      }
     }
 
   private static void test1()

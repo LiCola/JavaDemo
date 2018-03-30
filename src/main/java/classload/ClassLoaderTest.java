@@ -1,4 +1,4 @@
-package compiler;
+package classload;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +12,19 @@ public class ClassLoaderTest {
 
   public static final void main(String[] args)
       throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    testMyClassLoad();
+    testDiffClassLoad();
+  }
+
+  private static void testDiffClassLoad() {
+    System.out.println("String Class Loader:"+String.class.getClassLoader());
+    System.out.println("int Class Loader:"+int.class.getClassLoader());
+    System.out.println("HashMap Class Loader:"+HashMap.class.getClassLoader());
+    System.out.println("ClassLoaderTest Class Loader:"+ClassLoaderTest.class.getClassLoader());
+  }
+
+  private static void testMyClassLoad()
+      throws ClassNotFoundException, InstantiationException, IllegalAccessException {
     ClassLoader mClassLoader = new ClassLoader() {
       @Override
       public Class<?> loadClass(String name) throws ClassNotFoundException {
@@ -34,15 +47,12 @@ public class ClassLoaderTest {
       }
     };
 
-    Object object = mClassLoader.loadClass("javaer.compiler.ClassLoaderTest").newInstance();
+    Object object = mClassLoader.loadClass("classload.ClassLoaderTest").newInstance();
 
     System.out.println(object.getClass());
 
     System.out.println(object instanceof ClassLoaderTest);
 
-    System.out.println("String Class Loader:"+String.class.getClassLoader());
-    System.out.println("int Class Loader:"+int.class.getClassLoader());
-    System.out.println("HashMap Class Loader:"+HashMap.class.getClassLoader());
-    System.out.println("ClassLoaderTest Class Loader:"+ClassLoaderTest.class.getClassLoader());
+
   }
 }

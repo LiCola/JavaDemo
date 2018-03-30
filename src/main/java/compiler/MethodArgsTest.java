@@ -1,42 +1,44 @@
+package compiler;
+
 /**
  * Created by 李可乐 on 2017/5/24.
  */
-public class MethodTest {
+public class MethodArgsTest {
 
   public int intArg;
   public String strArg;
 
   @Override
   public String toString() {
-    return "MethodTest{" +Integer.toHexString(hashCode())+
+    return "compiler.MethodArgsTest{" +Integer.toHexString(hashCode())+
         ":intArg=" + intArg +
         ", strArg='" + strArg + '\'' +
         '}';
   }
 
   public static void main(String[] args) {
-    MethodTest methodTest = new MethodTest();
-    int data2 = methodTest.whenToEvaluateZing(12);
+    MethodArgsTest methodArgsTest = new MethodArgsTest();
+    int data2 = methodArgsTest.whenToEvaluateZing(12);
 
     argsMethod(1,10);
 
     //java传值调用 先计算再传入函数
     int arg=10;
-    methodTest.count(arg+1);
+    methodArgsTest.count(arg+1);
 
     int dataArg=10;
     System.out.println("base arg old:"+dataArg);
-    methodTest.changeBaseArgs(dataArg);
+    methodArgsTest.changeBaseArgs(dataArg);
     System.out.println("base call change after:"+dataArg);
 
-    MethodTest methodArg=new MethodTest();
+    MethodArgsTest methodArg=new MethodArgsTest();
     System.out.println("reference arg old:"+methodArg);
-    methodTest.changeReferenceArgs(methodArg);
+    methodArgsTest.changeReferenceArgs(methodArg);
     System.out.println("reference call change after:"+methodArg);
 
     String immStrArg="empty";
     System.out.println("immutable object arg old:"+immStrArg);
-    methodTest.changeImmReferArg(immStrArg);
+    methodArgsTest.changeImmReferArg(immStrArg);
     System.out.println("immutable object call change after:"+immStrArg);
 
 
@@ -69,7 +71,7 @@ public class MethodTest {
     arg=arg+10;
   }
 
-  void changeReferenceArgs(MethodTest arg){
+  void changeReferenceArgs(MethodArgsTest arg){
     arg.intArg=10;
     arg.strArg="data";
   }

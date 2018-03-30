@@ -26,7 +26,7 @@ public class CountDownLatchTest {
       threads[i].start();
     }
 
-    latch.await();
+    latch.await();//主线程 等待子线程的倒计数完成 主从协同
     System.out.println("collect worker results");
   }
 

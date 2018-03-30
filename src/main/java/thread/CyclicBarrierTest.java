@@ -12,6 +12,7 @@ public class CyclicBarrierTest {
     int num=3;
     Thread[] threads=new Thread[num];
 
+    //集合点的实现方式 循环栏栅 子线程间协同
     CyclicBarrier barrier=new CyclicBarrier(num, new Runnable() {
       @Override
       public void run() {
@@ -49,9 +50,6 @@ public class CyclicBarrierTest {
         //集合点B
         barrier.await();
         System.out.println(this.getName()+" arrived A "+System.currentTimeMillis());
-
-
-
 
       } catch (InterruptedException e) {
         e.printStackTrace();
