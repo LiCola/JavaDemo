@@ -3,46 +3,30 @@ package thread;
 /**
  * Created by LiCola on 2017/11/21.
  */
-public class VolatileTest {
+public class VolatileTest implements Runnable {
 
-  volatile int a = 1;
-  volatile int b = 2;
+  private volatile boolean isRunning = true;
 
-  public void change() {
-    this.a = 3;
-    this.b = this.a;
+  public boolean isRunning() {
+    return isRunning;
   }
 
-  public void print() {
-    System.out.println("b=" + b + " : a=" + a);
+  public void setRunning(boolean running) {
+    isRunning = running;
   }
 
-  public static final void main(String[] args) {
-    while (true) {
-      final VolatileTest volatileTest = new VolatileTest();
-      new Thread(new Runnable() {
-        @Override
-        public void run() {
-          try {
-            Thread.sleep(100);
-          } catch (InterruptedException e) {
-            e.printStackTrace();
-          }
-          volatileTest.change();
-        }
-      }).start();
+  public static final void main(String[] args) throws InterruptedException {
+    VolatileTest volatileTest = new VolatileTest();
+    new Thread(volatileTest).start();
+    Thread.sleep(1000);
+    volatileTest.setRunning(false);
+  }
 
-      new Thread(new Runnable() {
-        @Override
-        public void run() {
-          try {
-            Thread.sleep(100);
-          } catch (InterruptedException e) {
-            e.printStackTrace();
-          }
-          volatileTest.print();
-        }
-      }).start();
+  @Override
+  public void run() {
+    System.out.println("进入 run 代码块");
+    while (isRunning()) {
     }
+    System.out.println("isRunning 被设置为 false 线程终止");
   }
 }
