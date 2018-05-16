@@ -2,9 +2,12 @@ package collections;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.Set;
 import java.util.TreeMap;
 
 /**
@@ -16,7 +19,27 @@ public class MapTest {
 //    testMap();
 //    testTree();
 //    testSet();
-    testLinked();
+//    testLinked();
+    testDelete();
+  }
+
+  private static void testDelete() {
+    HashMap<String,Integer> hashMap=new HashMap<>();
+
+    hashMap.put("10",10);
+    hashMap.put("20",20);
+    hashMap.put("30",30);
+
+    Iterator<Entry<String, Integer>> iterator = hashMap.entrySet().iterator();
+    while (iterator.hasNext()){
+      Entry<String, Integer> entry = iterator.next();
+
+      iterator.remove();
+    }
+
+    System.out.println(System.currentTimeMillis());
+
+    System.out.println(hashMap.isEmpty());
   }
 
   private static abstract class EmptyBase{
