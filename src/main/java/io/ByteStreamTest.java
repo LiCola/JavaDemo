@@ -1,5 +1,5 @@
-package io;
-
+package io;import com.licola.llogger.LLogger;
+import com.licola.llogger.LLogger;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -30,7 +30,7 @@ public class ByteStreamTest {
     byte[] bytes = writeContent.getBytes("UTF-8");
 
     try {
-      System.out.println("write:" + writeContent);
+      LLogger.d("write:" + writeContent);
       bufferedOutputStream.write(bytes);
     } finally {
       bufferedOutputStream.flush();
@@ -58,7 +58,7 @@ public class ByteStreamTest {
     }
 
     String resultStr = new String(bytes, 0, bytesRead, "UTF-8");//使用读取得到的字节数组 构造字符串
-    System.out.println("Read Result:" + bytesRead + " resultStr:" + resultStr);
+    LLogger.d("Read Result:" + bytesRead + " resultStr:" + resultStr);
   }
 
   /**
@@ -72,7 +72,7 @@ public class ByteStreamTest {
     int bytesRead = bufferedInputStream.read(bytes);//一次性 读取到字节数组中 其实就是直接从文件流中读到内存中
 
     String resultStr = new String(bytes, 0, bytesRead, "UTF-8");
-    System.out.println("Read Result:" + bytesRead + " resultStr:" + resultStr);
+    LLogger.d("Read Result:" + bytesRead + " resultStr:" + resultStr);
   }
 
 
@@ -86,7 +86,7 @@ public class ByteStreamTest {
       byteArrayOutputStream.write(buf, 0, bytesRead);//向动态字节数据 中 写入临时的字节数组
     }
     String resultStr = byteArrayOutputStream.toString("UTF-8");//最后从动态字节数组中 使用全部读取到的数据 构造结果
-    System.out.println("resultStr:" + resultStr);
+    LLogger.d("resultStr:" + resultStr);
 
   }
 

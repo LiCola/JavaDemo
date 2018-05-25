@@ -1,4 +1,4 @@
-package compiler;
+package compiler; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/12/11.
@@ -10,14 +10,14 @@ public class MethodBind {
     public static int A=1000;
 
     public void calc(int a, long b) {
-      System.out.println("base calc invoke");
+      LLogger.d("base calc invoke");
     }
   }
 
   static class Sub extends Base implements Interface0{
 
     public void calc(long a, long b) {
-      System.out.println("sub calc invoke");
+      LLogger.d("sub calc invoke");
     }
   }
 
@@ -27,7 +27,7 @@ public class MethodBind {
     int b = 100;
     newInstance.calc(a, b);
 
-//    System.out.println(Sub.A);
+//    LLogger.d(Sub.A);
   }
 
   public interface Interface0 {

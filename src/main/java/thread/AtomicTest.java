@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -35,13 +35,13 @@ public class AtomicTest {
     }
     CountDownLatch countDownLatch = new CountDownLatch(workSize);
 
-    System.out.println("主线程开始" + System.currentTimeMillis());
+    LLogger.d("主线程开始" + System.currentTimeMillis());
 
     for (int i = 0; i < workSize; i++) {
       executor.execute(new WorkCountRunnable(workBlockingQueue.poll(), countDownLatch));
     }
     countDownLatch.await();//等待子线程的所有任务完成 主线程阻塞
-    System.out.println("主线程结束" + System.currentTimeMillis());
+    LLogger.d("主线程结束" + System.currentTimeMillis());
   }
 
   /**
@@ -62,7 +62,7 @@ public class AtomicTest {
 
     @Override
     public void run() {
-      System.out.println(Thread.currentThread().toString() + " 处理任务:" + workName);
+      LLogger.d(Thread.currentThread().toString() + " 处理任务:" + workName);
       try {
         Thread.sleep(new Random().nextInt(1000));
       } catch (InterruptedException e) {
@@ -96,7 +96,7 @@ public class AtomicTest {
         e.printStackTrace();
       }
 
-      System.out.println(Thread.currentThread()
+      LLogger.d(Thread.currentThread()
           + " atomicInteger getAndIncrement:" + atomicInteger.getAndIncrement()
           + " integerOperate getAndIncrement:" + integerOperate.getAndIncrement()
           + " stringAtomicIntegerFieldUpdaterDemo getAndIncrement:" + stringAtomicIntegerFieldUpdaterDemo.getAndIncrement()
@@ -121,9 +121,9 @@ public class AtomicTest {
       threads[i].join();
     }
 
-    System.out.println("atomicInteger = " + atomicInteger.get());
-    System.out.println("integerOperate = " + integerOperate.get());
-    System.out.println("atomicIntegerFieldUpdaterDemo get int:" + atomicIntegerFieldUpdaterDemo.getAtomicInt() +" get ref:"+atomicIntegerFieldUpdaterDemo.getAtomicRef());
+    LLogger.d("atomicInteger = " + atomicInteger.get());
+    LLogger.d("integerOperate = " + integerOperate.get());
+    LLogger.d("atomicIntegerFieldUpdaterDemo get int:" + atomicIntegerFieldUpdaterDemo.getAtomicInt() +" get ref:"+atomicIntegerFieldUpdaterDemo.getAtomicRef());
 
   }
 

@@ -1,4 +1,4 @@
-package io;
+package io;import com.licola.llogger.LLogger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class URLStreamTest {
     BufferedReader br = new BufferedReader(isr);//为字符输入流添加缓冲，提高读取效率
     String data = br.readLine();//读取数据
     while (data != null) {
-      System.out.println(data);//输出数据
+      LLogger.d(data);//输出数据
       data = br.readLine();
     }
     br.close();

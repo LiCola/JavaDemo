@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
@@ -42,7 +42,7 @@ public class ThreadPoolTest {
 
     @Override
     public void run() {
-      System.out.println(Thread.currentThread() +" task id:"+taskId+" run");
+      LLogger.d(Thread.currentThread() +" task id:"+taskId+" run");
       try {
         Thread.sleep((long) (1000*Math.random()));
       } catch (InterruptedException e) {
@@ -56,7 +56,7 @@ public class ThreadPoolTest {
 //      } catch (InterruptedException | ExecutionException e) {
 //        e.printStackTrace();
 //      }
-      System.out.println(Thread.currentThread() +" task id:"+taskId+" finish");
+      LLogger.d(Thread.currentThread() +" task id:"+taskId+" finish");
     }
   }
 
@@ -64,7 +64,7 @@ public class ThreadPoolTest {
 
     @Override
     public void run() {
-      System.out.println(Thread.currentThread() + " task B execute and finish");
+      LLogger.d(Thread.currentThread() + " task B execute and finish");
     }
   }
 

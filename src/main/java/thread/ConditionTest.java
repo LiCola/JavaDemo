@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -14,7 +14,7 @@ public class ConditionTest implements Runnable {
 
 
   public static void println(Object object){
-    System.out.println(System.currentTimeMillis()+"ms : "+object.toString());
+    LLogger.d(System.currentTimeMillis()+"ms : "+object.toString());
   }
   
   @Override

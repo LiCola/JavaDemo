@@ -4,6 +4,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+
+import com.licola.llogger.LLogger;
 import java.util.List;
 
 /**
@@ -28,13 +30,13 @@ public class ClassTest {
     Field[] fields = aClass.getDeclaredFields();
     for (Field field : fields) {
       field.setAccessible(true);
-      System.out.println(field.getName()+":"+field.get(list));
+      LLogger.d(field.getName()+":"+field.get(list));
     }
 
     Constructor<?>[] declaredConstructors = aClass.getDeclaredConstructors();
     Constructor<? extends List> declaredConstructor = aClass.getDeclaredConstructor(int.class);
     List instance = declaredConstructor.newInstance(3);
-    System.out.println("List class isInstance:"+List.class.isInstance(list));
+    LLogger.d("List class isInstance:"+List.class.isInstance(list));
 
 
   }

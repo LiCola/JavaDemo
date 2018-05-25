@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.Collections;
 import java.util.Hashtable;
@@ -41,7 +41,7 @@ public class ThreadCollectionTest {
         public void run() {
           for (int j = 0; j < size; j++) {
             int key = random.nextInt(size);
-            System.out.println(Thread.currentThread().toString() + " key:" + key);
+            LLogger.d(Thread.currentThread().toString() + " key:" + key);
             map.put(key, j);
           }
         }
@@ -66,7 +66,7 @@ public class ThreadCollectionTest {
     Collections.sort(list);
 
     for (String s : list) {
-      System.out.println("for item:" + s);
+      LLogger.d("for item:" + s);
     }
   }
 
@@ -76,7 +76,7 @@ public class ThreadCollectionTest {
       public void run() {
         for (int i = 0; i < 100; i++) {
           list.add("item" + i);
-//          System.out.println(Thread.currentThread().toString()+" 线程在写容器"+" index="+i);
+//          LLogger.d(Thread.currentThread().toString()+" 线程在写容器"+" index="+i);
           try {
             Thread.sleep((long) (Math.random() * 10));
           } catch (InterruptedException e) {
@@ -95,7 +95,7 @@ public class ThreadCollectionTest {
         while (true) {
           int index = 0;
           for (String s : list) {
-//            System.out.println(Thread.currentThread().toString()+" 线程在读容器"+" index="+index++);
+//            LLogger.d(Thread.currentThread().toString()+" 线程在读容器"+" index="+index++);
           }
         }
       }

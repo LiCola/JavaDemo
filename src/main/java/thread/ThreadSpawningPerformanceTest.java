@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/11/24. 同一个大型任务，被不同的子线程分别执行 当线程数对数增长，任务时间对半下降，
@@ -10,7 +10,7 @@ public class ThreadSpawningPerformanceTest {
       throws InterruptedException {
     Thread[] tt = new Thread[threadCount];
     final int[] aa = new int[tt.length];
-    System.out.print("Creating " + tt.length + " Thread objects... ");
+    LLogger.d("Creating " + tt.length + " Thread objects... ");
     long t0 = System.nanoTime(), t00 = t0;
     for (int i = 0; i < tt.length; i++) {
       final int j = i;
@@ -24,28 +24,28 @@ public class ThreadSpawningPerformanceTest {
         }
       };
     }
-    System.out.println(" Done in " + (System.nanoTime() - t0) * 1E-6 + " ms.");
-    System.out.print("Starting " + tt.length + " threads with " + workAmountPerThread
+    LLogger.d(" Done in " + (System.nanoTime() - t0) * 1E-6 + " ms.");
+    LLogger.d("Starting " + tt.length + " threads with " + workAmountPerThread
         + " steps of work per thread... ");
     t0 = System.nanoTime();
     for (int i = 0; i < tt.length; i++) {
       tt[i].start();
     }
-    System.out.println(" Done in " + (System.nanoTime() - t0) * 1E-6 + " ms.");
-    System.out.print("Joining " + tt.length + " threads... ");
+    LLogger.d(" Done in " + (System.nanoTime() - t0) * 1E-6 + " ms.");
+    LLogger.d("Joining " + tt.length + " threads... ");
     t0 = System.nanoTime();
     for (int i = 0; i < tt.length; i++) {
       tt[i].join();
     }
-    System.out.println(" Done in " + (System.nanoTime() - t0) * 1E-6 + " ms.");
+    LLogger.d(" Done in " + (System.nanoTime() - t0) * 1E-6 + " ms.");
     long totalTime = System.nanoTime() - t00;
     int checkSum = 0; //display checksum in order to give the JVM no chance to optimize out the contents of the run() method and possibly even thread creation
     for (int a : aa) {
       checkSum += a;
     }
-    System.out.println("Checksum: " + checkSum);
-    System.out.println("Total time: " + totalTime * 1E-6 + " ms");
-    System.out.println();
+    LLogger.d("Checksum: " + checkSum);
+    LLogger.d("Total time: " + totalTime * 1E-6 + " ms");
+    LLogger.d();
     return totalTime;
   }
 
@@ -59,18 +59,18 @@ public class ThreadSpawningPerformanceTest {
         time[i][j] = test(threadCount[i], workAmount / threadCount[i]);
       }
     }
-    System.out.println("core available number:"+Runtime.getRuntime().availableProcessors());
-    System.out.print("Number of threads ");
+    LLogger.d("core available number:"+Runtime.getRuntime().availableProcessors());
+    LLogger.d("Number of threads ");
     for (long t : threadCount) {
-      System.out.print("\t" + t);
+      LLogger.d("\t" + t);
     }
-    System.out.println();
+    LLogger.d();
     for (int j = 0; j < trialCount; j++) {
-      System.out.print((j + 1) + ". trial time (ms)");
+      LLogger.d((j + 1) + ". trial time (ms)");
       for (int i = 0; i < threadCount.length; i++) {
-        System.out.print("\t" + Math.round(time[i][j] * 1E-6));
+        LLogger.d("\t" + Math.round(time[i][j] * 1E-6));
       }
-      System.out.println();
+      LLogger.d();
     }
   }
 }

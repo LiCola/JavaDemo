@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -31,7 +31,7 @@ public class ConcurrentCollectionsTest {
           try {
             String taskTime = "task time:" + System.nanoTime();
             blockingQueue.put(taskTime);
-            System.out.println("put:" + taskTime);
+            LLogger.d("put:" + taskTime);
             Thread.sleep(500);
           } catch (InterruptedException e) {
             e.printStackTrace();
@@ -47,7 +47,7 @@ public class ConcurrentCollectionsTest {
         while (true) {
           try {
             String task = blockingQueue.take();
-            System.out.println("take:" + task);
+            LLogger.d("take:" + task);
             Thread.sleep(1000);
           } catch (InterruptedException e) {
             e.printStackTrace();

@@ -1,5 +1,5 @@
 package memory;
-
+import com.licola.llogger.LLogger;
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.SoftReference;
@@ -33,10 +33,10 @@ public class ReferenceQueueTest {
         try {
           int count = 0;
           Reference<byte[]> weak;
-          System.out.println("开启回收检测线程");
+          LLogger.d("开启回收检测线程");
           while ((weak = (Reference<byte[]>) referenceQueue.remove()) != null) {
             byte[] content=weak.get();
-            System.out.println((count++) + " 回收:" + weak.hashCode()+" hash:"+ Arrays
+            LLogger.d((count++) + " 回收:" + weak.hashCode()+" hash:"+ Arrays
                 .hashCode(content));
           }
         } catch (InterruptedException e) {
@@ -56,6 +56,6 @@ public class ReferenceQueueTest {
       otherReference.clear();
     }
 
-    System.out.println("map size:" + map.size());
+    LLogger.d("map size:" + map.size());
   }
 }

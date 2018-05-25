@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.Random;
 import java.util.concurrent.locks.LockSupport;
@@ -26,7 +26,7 @@ public class LockTest {
       @Override
       public void run() {
         LockSupport.park();
-        System.out.println("work thread exit");
+        LLogger.d("work thread exit");
       }
     };
     thread.start();
@@ -67,7 +67,7 @@ public class LockTest {
     }
 
     long userTime = System.currentTimeMillis() - startTime;
-    System.out.println("counter :" + counter.getCount() + " userTime:" + userTime);
+    LLogger.d("counter :" + counter.getCount() + " userTime:" + userTime);
   }
 
   public static class RunnableCounter implements Runnable {

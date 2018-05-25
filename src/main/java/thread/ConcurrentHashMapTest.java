@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
@@ -15,7 +15,7 @@ public class ConcurrentHashMapTest {
     concurrentHashMap.put("a",1);
     concurrentHashMap.put("b",2);
 
-    System.out.println(concurrentHashMap.size());
+    LLogger.d(concurrentHashMap.size());
   }
 
   private static void testIterator() {
@@ -33,7 +33,7 @@ public class ConcurrentHashMapTest {
           } catch (InterruptedException e) {
             e.printStackTrace();
           }
-          System.out.println(entry.getKey()+" :"+entry.getValue());
+          LLogger.d(entry.getKey()+" :"+entry.getValue());
         }
       }
     };
@@ -53,7 +53,7 @@ public class ConcurrentHashMapTest {
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
-    System.out.println("put update get ");
+    LLogger.d("put update get ");
     Thread threadAfter=new Thread(new RunnableGet());
     threadAfter.start();
 

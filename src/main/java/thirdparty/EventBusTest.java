@@ -1,5 +1,5 @@
-package android;
-
+package thirdparty;
+import com.licola.llogger.LLogger;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -19,7 +19,7 @@ public class EventBusTest {
 
   @Subscribe
   public void onEvent(String event){
-    System.out.println("event received event:"+event);
+    LLogger.d("event received event:"+event);
   }
 
 }

@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -14,7 +14,7 @@ public class IntegerOperate {
   }
 
   public int getAndIncrement() {
-    System.out.println("Thread:" + Thread.currentThread().toString() +
+    LLogger.d("Thread:" + Thread.currentThread().toString() +
         " isHeldByCurrentThread:" + lock.isHeldByCurrentThread() + " hasQueuedThreads:" + lock
         .hasQueuedThreads() + " getQueueLength:" + lock.getQueueLength());
     lock.lock();

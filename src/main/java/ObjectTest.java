@@ -1,3 +1,4 @@
+import com.licola.llogger.LLogger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +11,7 @@ public class ObjectTest {
 
 
   public static final void main(String[] args){
-    System.out.println("name");
+    LLogger.d("name");
     List<String> stringList =new ArrayList<String>();
     stringList.add("we");
 
@@ -18,6 +19,6 @@ public class ObjectTest {
 
     String string="12";
     Integer integer = Integer.valueOf(string);
-    System.out.println(integer);
+    LLogger.d(integer);
   }
 }

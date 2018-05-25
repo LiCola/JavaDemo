@@ -1,5 +1,7 @@
 package advance;
 
+
+import com.licola.llogger.LLogger;
 import java.util.function.Function;
 
 /**
@@ -23,12 +25,11 @@ public class ClosureTest {
     return new Runnable() {
       @Override
       public void run() {
-
         dataObject.changeValue(10,"123");
-        System.out.println(
+        LLogger.d(
             "局部内部类 实现闭包:" + "dataInt:" + dataInt + " dataStr:" + dataStr + " dataObject:"
                 + dataObject);
-        System.out.println("访问外部全局变量："+globalInt+" input:"+input);
+        LLogger.d("访问外部全局变量："+globalInt+" input:"+input);
 
       }
     };

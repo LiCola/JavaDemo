@@ -1,5 +1,6 @@
 package encrypt;
 
+import com.licola.llogger.LLogger;
 import java.security.NoSuchAlgorithmException;
 
 /**
@@ -11,7 +12,7 @@ public class EncryptTest {
 
     String input="123";
     String md5Encode = MD5Utils.MD5Encode(input);
-    System.out.println("input:"+input+" encode:"+md5Encode);
+    LLogger.d("input:"+input+" encode:"+md5Encode);
   }
 
 

@@ -1,5 +1,5 @@
 package inside;
-
+import com.licola.llogger.LLogger;
 import java.io.File;
 
 /**
@@ -10,7 +10,7 @@ public class MethodInnerClassTest {
   private int a = 100;
 
   public static final void main(String[] args) {
-    System.out.println("main");
+    LLogger.d("main");
   }
 
 
@@ -23,10 +23,10 @@ public class MethodInnerClassTest {
     class Inner {
 
       public void innerMethod() {
-        System.out.println("outer var a:" + a);
-        System.out.println("method param :" + param);
-        System.out.println("method var str:" + str);
-        System.out.println("method other instance:" + file);
+        LLogger.d("outer var a:" + a);
+        LLogger.d("method param :" + param);
+        LLogger.d("method var str:" + str);
+        LLogger.d("method other instance:" + file);
       }
     }
 
@@ -38,7 +38,7 @@ public class MethodInnerClassTest {
    class InnerClass {
 
     public void doSome() {
-      System.out.println("external var:" + a);
+      LLogger.d("external var:" + a);
     }
   }
 }

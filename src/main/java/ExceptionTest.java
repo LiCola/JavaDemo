@@ -1,3 +1,5 @@
+import com.licola.llogger.LLogger;
+
 /**
  * Created by 李可乐 on 2017/5/25.
  */
@@ -5,7 +7,7 @@ public class ExceptionTest {
 
     public String find(String input) throws IllegalAccessException {
         if (input != null) {
-            System.out.println("find this");
+            LLogger.d("find this");
             return "this";
         } else {
             throw new IllegalAccessException("can't find this");
@@ -23,6 +25,6 @@ public class ExceptionTest {
             }
         }
         long timeEnd = System.currentTimeMillis();
-        System.out.println("time user = " + (timeEnd - timeBegin));
+        LLogger.d("time user = " + (timeEnd - timeBegin));
     }
 }

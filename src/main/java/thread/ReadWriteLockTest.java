@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -51,9 +51,9 @@ public class ReadWriteLockTest {
 
       rwl.readLock().lock();
       try {
-        System.out.println(Thread.currentThread().getName() + " be ready to read data!");
+        LLogger.d(Thread.currentThread().getName() + " be ready to read data!");
         Thread.sleep(data);
-        System.out.println(Thread.currentThread().getName() + " have read data :" + data);
+        LLogger.d(Thread.currentThread().getName() + " have read data :" + data);
       } catch (Exception e) {
         e.printStackTrace();
       } finally {
@@ -70,10 +70,10 @@ public class ReadWriteLockTest {
 
       rwl.writeLock().lock();
       try {
-        System.out.println(Thread.currentThread().getName() + " be write to write data!");
+        LLogger.d(Thread.currentThread().getName() + " be write to write data!");
         Thread.sleep(data);
         this.data = data;
-        System.out.println(Thread.currentThread().getName() + " have write data :" + data);
+        LLogger.d(Thread.currentThread().getName() + " have write data :" + data);
 
       } catch (Exception e) {
         e.printStackTrace();

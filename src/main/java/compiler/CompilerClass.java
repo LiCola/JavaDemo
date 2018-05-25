@@ -1,4 +1,4 @@
-package compiler;
+package compiler; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/11/3.
@@ -19,7 +19,7 @@ public class CompilerClass<T,V> {
 //  }
 
   private void sayHello() {
-    System.out.println("hello world:" + data);
+    LLogger.d("hello world:" + data);
     StringBuilder stringBuilder=new StringBuilder();
     stringBuilder.append("123");
 
@@ -33,9 +33,9 @@ public class CompilerClass<T,V> {
 
   public static void main(String[] args) {
     CompilerClass<String,Integer> compilerClass = new CompilerClass<>("parameter",123);
-//    System.out.print(t.foo(5, 3));
+//    LLogger.d(t.foo(5, 3));
 
     compilerClass.sayHello();
-    System.out.println("name:" + compilerClass.name);
+    LLogger.d("name:" + compilerClass.name);
   }
 }

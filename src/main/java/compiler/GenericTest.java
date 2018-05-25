@@ -1,4 +1,4 @@
-package compiler;
+package compiler; import com.licola.llogger.LLogger;
 
 import java.util.Arrays;
 
@@ -10,14 +10,14 @@ public class GenericTest {
   public static void main(String[] args) {
     Pair<String,Integer> pair=new Pair<>("普通泛型的定义",1);
     String first = pair.getFirst();
-    System.out.println("pair first:"+first);
+    LLogger.d("pair first:"+first);
 
     @SuppressWarnings("unchecked")
     Pair<Object,String>[] pairs=(Pair<Object, String>[]) new Pair[3];//不能直接创建泛型数组 只能先创建无泛型的数组 然后强制类型转换
 
     NumberPair<Integer,Double> numberPair= new NumberPair<>(1, 1.5);
     double sum = numberPair.sum();
-    System.out.println("NumberPair sum:"+sum);
+    LLogger.d("NumberPair sum:"+sum);
 
     DynamicArray<Number> numbers=new DynamicArray<>();
     DynamicArray<Integer> ints=new DynamicArray<>();
@@ -36,10 +36,10 @@ public class GenericTest {
     childs.add(new Child(20));
     childs.add(new Child(30));
     Child maxChild=max(childs);
-    System.out.println(maxChild);
+    LLogger.d(maxChild);
 
     Object array=new Integer[]{};
-    System.out.println(array.getClass());
+    LLogger.d(array.getClass());
   }
 
   /**

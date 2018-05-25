@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.concurrent.Semaphore;
 
@@ -13,7 +13,7 @@ public class SemaphoreTest {
     Semaphore semaphore=new Semaphore(1);
     semaphore.acquire();
     semaphore.acquire();
-    System.out.println("2 acquire after");
+    LLogger.d("2 acquire after");
   }
 
   private static void testLimitSemaphore() {

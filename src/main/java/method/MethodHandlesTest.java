@@ -1,5 +1,5 @@
 package method;
-
+import com.licola.llogger.LLogger;
 import java.lang.invoke.MethodType;
 
 /**

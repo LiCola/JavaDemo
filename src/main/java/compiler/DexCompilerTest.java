@@ -1,4 +1,4 @@
-package compiler;
+package compiler; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/12/26.
@@ -15,7 +15,7 @@ public class DexCompilerTest {
   public static final void main(String[] args) {
     DexCompilerTest compilerTest = new DexCompilerTest();
     compilerTest.testMethod();
-    System.out.println("final String:" + finalStr);
+    LLogger.d("final String:" + finalStr);
   }
 
   public void testMethod() {

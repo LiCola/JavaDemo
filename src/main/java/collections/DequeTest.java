@@ -1,4 +1,4 @@
-package collections;
+package collections;import com.licola.llogger.LLogger;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -20,12 +20,12 @@ public class DequeTest {
     deque.addFirst("a");
     deque.addLast("c");
     deque.size();
-    System.out.println(deque.size());
+    LLogger.d(deque.size());
     Integer.toBinaryString(-1);
   }
 
   private static void userAsStack() {
-    System.out.println("用做 先进后出的LIFO栈");
+    LLogger.d("用做 先进后出的LIFO栈");
     Deque<String> stack=new ArrayDeque<>(32);
 
     stack.push("a");
@@ -33,19 +33,19 @@ public class DequeTest {
     stack.push("c");
 
     while (stack.peek()!=null){
-      System.out.println(stack.poll());
+      LLogger.d(stack.poll());
     }
   }
 
   private static void userAsQueue() {
-    System.out.println("用作 先进先出的FIFO");
+    LLogger.d("用作 先进先出的FIFO");
     Queue<String> queue=new ArrayDeque<>();
     queue.offer("a");
     queue.offer("b");
     queue.offer("c");
 
     while (queue.peek()!=null){
-      System.out.println(queue.poll());
+      LLogger.d(queue.poll());
     }
   }
 }

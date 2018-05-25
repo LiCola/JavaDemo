@@ -1,5 +1,5 @@
-package io;
-
+package io;import com.licola.llogger.LLogger;
+import com.licola.llogger.LLogger;
 import java.io.File;
 import java.io.IOException;
 import okio.BufferedSink;
@@ -41,9 +41,9 @@ public class OkioTest {
     Source source = Okio.source(file);
     BufferedSource bufferedSource = Okio.buffer(source);
     String line1 = bufferedSource.readUtf8Line();
-    System.out.println("line1:" + line1);
+    LLogger.d("line1:" + line1);
     String line2 = bufferedSource.readUtf8LineStrict();
-    System.out.println("line2:" + line2);
+    LLogger.d("line2:" + line2);
 
   }
 

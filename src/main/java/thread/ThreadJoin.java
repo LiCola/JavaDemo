@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2018/5/2.
@@ -15,7 +15,7 @@ public class ThreadJoin {
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
-        System.out.println("thread finish 1:" + Thread.currentThread());
+        LLogger.d("thread finish 1:" + Thread.currentThread());
       }
     });
 
@@ -29,7 +29,7 @@ public class ThreadJoin {
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
-        System.out.println("thread finish 2:" + Thread.currentThread());
+        LLogger.d("thread finish 2:" + Thread.currentThread());
       }
     });
 
@@ -37,6 +37,6 @@ public class ThreadJoin {
     thread2.start();
     thread2.join();//
 
-    System.out.println("main join finish");
+    LLogger.d("main join finish");
   }
 }

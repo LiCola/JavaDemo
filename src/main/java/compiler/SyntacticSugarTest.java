@@ -1,4 +1,4 @@
-package compiler;
+package compiler; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/12/25.
@@ -25,7 +25,7 @@ public class SyntacticSugarTest {
     for (int i = 0; i < times; i++) {
       result.append(i);
     }
-    System.out.println("user time:" + (System.currentTimeMillis() - start));
+    LLogger.d("user time:" + (System.currentTimeMillis() - start));
     return result.toString();
   }
 

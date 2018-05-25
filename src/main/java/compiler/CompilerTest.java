@@ -1,4 +1,4 @@
-package compiler;
+package compiler; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/12/8.
@@ -17,7 +17,7 @@ public class CompilerTest {
   }
 
   public static final void main(String[] args) {
-    System.out.println("run time");
+    LLogger.d("run time");
   }
 
   public int inc() {

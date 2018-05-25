@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
@@ -16,7 +16,7 @@ public class CyclicBarrierTest {
     CyclicBarrier barrier=new CyclicBarrier(num, new Runnable() {
       @Override
       public void run() {
-        System.out.println("all arrived "+System.currentTimeMillis()+" executed by "+Thread.currentThread().getName());
+        LLogger.d("all arrived "+System.currentTimeMillis()+" executed by "+Thread.currentThread().getName());
       }
     });
 
@@ -42,14 +42,14 @@ public class CyclicBarrierTest {
 
         //集合点A
         barrier.await();
-        System.out.println(this.getName()+" arrived A "+System.currentTimeMillis());
+        LLogger.d(this.getName()+" arrived A "+System.currentTimeMillis());
 
         //集合后模拟再各自独立运行
         Thread.sleep((long) (Math.random()*1000));
 
         //集合点B
         barrier.await();
-        System.out.println(this.getName()+" arrived A "+System.currentTimeMillis());
+        LLogger.d(this.getName()+" arrived A "+System.currentTimeMillis());
 
       } catch (InterruptedException e) {
         e.printStackTrace();

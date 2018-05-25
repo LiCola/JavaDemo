@@ -1,5 +1,5 @@
-package io;
-
+package io;import com.licola.llogger.LLogger;
+import com.licola.llogger.LLogger;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,6 +27,7 @@ public class CharStreamTest {
 //    printWrite();
 
     SystemScanner();
+
   }
 
   private static void SystemScanner() throws UnsupportedEncodingException, FileNotFoundException {
@@ -36,8 +37,8 @@ public class CharStreamTest {
 
     try{
       Scanner in = new Scanner(System.in);
-      System.out.println(in.nextLine());
-      System.out.println(in.nextLine());
+      LLogger.d(in.nextLine());
+      LLogger.d(in.nextLine());
     }catch(Exception e){
       System.err.println(e.getMessage());
     }
@@ -68,6 +69,6 @@ public class CharStreamTest {
     char[] chars = new char[1024];
     int charsRead = reader.read(chars);
     String readStr=new String(chars,0,charsRead);
-    System.out.println("readStr:"+readStr);
+    LLogger.d("readStr:"+readStr);
   }
 }

@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/10/13.
@@ -11,9 +11,9 @@ public class ThreadLocalTest {
     Thread childThread = new Thread(new Runnable() {
       @Override
       public void run() {
-        System.out.println("child thread local init value:" + local.get());
+        LLogger.d("child thread local init value:" + local.get());
         local.set(200);
-        System.out.println("child thread local value:" + local.get());
+        LLogger.d("child thread local value:" + local.get());
       }
     });
 
@@ -21,7 +21,7 @@ public class ThreadLocalTest {
     childThread.start();
     childThread.join();
 
-    System.out.println("main thread local:" + local.get());
+    LLogger.d("main thread local:" + local.get());
 
 //    ThreadLocalRandom threadLocalRandom=ThreadLocalRandom.current();
   }

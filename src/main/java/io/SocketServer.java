@@ -1,4 +1,4 @@
-package io;
+package io;import com.licola.llogger.LLogger;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -34,7 +34,7 @@ public class SocketServer {
     try {
       mServerSocket = new ServerSocket(PORT);
       mExecutorService = Executors.newCachedThreadPool();
-      System.out.println("服务器启动");
+      LLogger.d("服务器启动");
       Socket client;
       while (true) {
         client = mServerSocket.accept();
@@ -62,7 +62,7 @@ public class SocketServer {
         in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
 
         printWriter.println("成功连接服务器 来自服务器");
-        System.out.println("成功连接服务器 ");
+        LLogger.d("成功连接服务器 ");
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -73,9 +73,9 @@ public class SocketServer {
       try {
         while (true) {
           if ((receviceMsg = in.readLine()) != null) {
-            System.out.println(" receive:" + receviceMsg);
+            LLogger.d(" receive:" + receviceMsg);
             if ("0".equals(receviceMsg)) {
-              System.out.println("客户端请求断开连接");
+              LLogger.d("客户端请求断开连接");
               printWriter.println("服务器断开连接 来自服务器");
 
               mSockets.remove(socket);

@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.Random;
 import java.util.concurrent.Callable;
@@ -22,12 +22,12 @@ public class FutureTest {
 
     Thread.sleep(1000);
 
-    System.out.println("主线程等待");
+    LLogger.d("主线程等待");
 
 
     try {
       Integer result = integerFuture.get();
-      System.out.println("result:"+result);
+      LLogger.d("result:"+result);
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
     }
@@ -40,7 +40,7 @@ public class FutureTest {
 
     @Override
     public Integer call() throws Exception {
-      System.out.println("Call thread:"+Thread.currentThread());
+      LLogger.d("Call thread:"+Thread.currentThread());
       int sleepSeconds=new Random().nextInt(1000);
       Thread.sleep(sleepSeconds);
       return sleepSeconds;

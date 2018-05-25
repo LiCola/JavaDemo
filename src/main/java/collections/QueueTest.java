@@ -1,4 +1,4 @@
-package collections;
+package collections;import com.licola.llogger.LLogger;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
@@ -26,8 +26,8 @@ public class QueueTest {
     TopK<Integer> topK = new TopK<>(5);
 
     topK.addAll(Arrays.asList(100, 1, 2, 5, 6, 7, 34, 9, 3, 4, 5, 8, 23, 21, 90, 1, 0));
-    System.out.println("top :" + Arrays.toString(topK.toArray(new Integer[0])));
-    System.out.println("getKth:" + topK.getKth());
+    LLogger.d("top :" + Arrays.toString(topK.toArray(new Integer[0])));
+    LLogger.d("getKth:" + topK.getKth());
   }
 
   private static void testQueueSort() {
@@ -37,7 +37,7 @@ public class QueueTest {
     queue.add(4);
     queue.addAll(Arrays.asList(3, 2, 1));
     while (queue.peek() != null) {
-      System.out.println("item:" + queue.poll());
+      LLogger.d("item:" + queue.poll());
     }
 
     queue.remove(4);

@@ -1,4 +1,4 @@
-package collections;
+package collections;import com.licola.llogger.LLogger;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -37,9 +37,9 @@ public class MapTest {
       iterator.remove();
     }
 
-    System.out.println(System.currentTimeMillis());
+    LLogger.d(System.currentTimeMillis());
 
-    System.out.println(hashMap.isEmpty());
+    LLogger.d(hashMap.isEmpty());
   }
 
   private static abstract class EmptyBase{
@@ -55,7 +55,7 @@ public class MapTest {
 //    accessMap.get("c");
     accessMap.put("d", 300);
     for (Entry<String, Integer> stringIntegerEntry : accessMap.entrySet()) {
-      System.out.println("key:"+stringIntegerEntry.getKey()+" value:"+stringIntegerEntry.getValue());
+      LLogger.d("key:"+stringIntegerEntry.getKey()+" value:"+stringIntegerEntry.getValue());
     }
 
     LinkedHashMap<String,String> cacheMap=new LRUCache<>(3);
@@ -65,7 +65,7 @@ public class MapTest {
     cacheMap.get("a");
 
     cacheMap.put("d","call");
-    System.out.println(cacheMap);
+    LLogger.d(cacheMap);
   }
 
   private static void testSet() {
@@ -75,7 +75,7 @@ public class MapTest {
     }
     boolean contains = stringSet.contains("");
     for (String s : stringSet) {
-      System.out.println("traverse："+s);
+      LLogger.d("traverse："+s);
     }
   }
 
@@ -92,9 +92,9 @@ public class MapTest {
     boolean containsValue = map.containsValue(1);
     map.remove("key0");
     Entry<String, Integer> firstEntry = map.firstEntry();
-    System.out.println(firstEntry.getKey());
+    LLogger.d(firstEntry.getKey());
     for (Entry<String, Integer> integerStringEntry : map.entrySet()) {
-      System.out.println(
+      LLogger.d(
           "integerStringEntry:{" + integerStringEntry.getKey() + ":" + integerStringEntry.getValue()
               + "}");
     }
@@ -131,7 +131,7 @@ public class MapTest {
 //      map.put(new SameHash(i),"value:"+i);
 //    }
 //
-//    System.out.println(map.entrySet());
+//    LLogger.d(map.entrySet());
 
     OverHashMap<OverEquals,String> overEqualsStringHashMap=new OverHashMap<>();
 
@@ -154,13 +154,13 @@ public class MapTest {
     }
 
     public boolean equals(OverEquals o) {
-      System.out.println("override method different parameter equals invoke");
+      LLogger.d("override method different parameter equals invoke");
       return false;
     }
 
     @Override
     public boolean equals(Object obj) {
-      System.out.println("over method equals invoke:"+obj);
+      LLogger.d("over method equals invoke:"+obj);
       return true;
     }
 

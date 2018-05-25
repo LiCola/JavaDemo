@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/8/10.
@@ -74,7 +74,7 @@ public class ThreadSynchronizedTest {
       threadReduce[i].join();
     }
 
-    System.out.println("instance targetData = " + synchronizedTest.targetData);
+    LLogger.d("instance targetData = " + synchronizedTest.targetData);
 
   }
 
@@ -136,9 +136,9 @@ public class ThreadSynchronizedTest {
       }
 
       if (isWork) {
-        System.out.println("threads still work");
+        LLogger.d("threads still work");
       } else {
-        System.out.println("counter result: " + counter.getCount());
+        LLogger.d("counter result: " + counter.getCount());
         return;
       }
     }

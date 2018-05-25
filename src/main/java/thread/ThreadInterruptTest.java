@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.io.IOException;
 import java.util.concurrent.locks.Lock;
@@ -31,13 +31,13 @@ public class ThreadInterruptTest {
       @Override
       public void run() {
 
-        System.out.println("线程A 进入lock锁代码块 之前");
+        LLogger.d("线程A 进入lock锁代码块 之前");
         try {
           lock.lockInterruptibly();
-          System.out.println("线程A 获取到lock锁");
+          LLogger.d("线程A 获取到lock锁");
         } catch (InterruptedException e) {
           e.printStackTrace();
-          System.out.println("A 线程响应中断");
+          LLogger.d("A 线程响应中断");
         } finally {
           lock.unlock();
         }
@@ -55,7 +55,7 @@ public class ThreadInterruptTest {
     } catch (InterruptedException e) {
       e.printStackTrace();
     } finally {
-      System.out.println("main线程运行结束");
+      LLogger.d("main线程运行结束");
       lock.unlock();
     }
 
@@ -74,14 +74,14 @@ public class ThreadInterruptTest {
 
       @Override
       public void run() {
-        System.out.println("entry synchronize block before");
+        LLogger.d("entry synchronize block before");
         synchronized (lockObj) {
-          System.out.println("run in synchronized block ");
+          LLogger.d("run in synchronized block ");
           while (!Thread.currentThread().isInterrupted()) {
-            System.out.println("run in synchronized block and not interrupt");
+            LLogger.d("run in synchronized block and not interrupt");
           }
         }
-        System.out.println("exit synchronize block");
+        LLogger.d("exit synchronize block");
       }
     }
 
@@ -102,12 +102,12 @@ public class ThreadInterruptTest {
     public void run() {
       while (!isInterrupted()) {
         try {
-          System.out.println(System.in.read());
+          LLogger.d(System.in.read());
         } catch (IOException e) {
           e.printStackTrace();
         }
       }
-      System.out.println("exit read io");
+      LLogger.d("exit read io");
     }
 
     public void cancel() {
@@ -141,7 +141,7 @@ public class ThreadInterruptTest {
         while (!isInterrupted()) {
 
         }
-        System.out.println("done work");
+        LLogger.d("done work");
       }
     };
 
@@ -166,7 +166,7 @@ public class ThreadInterruptTest {
           Thread.sleep(1000);
         } catch (InterruptedException e) {
           e.printStackTrace();
-          System.out.println(isInterrupted());
+          LLogger.d(isInterrupted());
         }
       }
     };

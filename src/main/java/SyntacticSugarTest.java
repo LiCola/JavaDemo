@@ -1,3 +1,5 @@
+import com.licola.llogger.LLogger;
+
 /**
  * Created by LiCola on 2018/4/13.
  */
@@ -11,6 +13,6 @@ public class SyntacticSugarTest {
     int length = target.length();
     String targetSuffix = target.substring(length - suffixLength);
     String targetName=target.substring(0,length - suffixLength);
-    System.out.println("targetSuffix:"+targetSuffix+" targetName:"+targetName);
+    LLogger.d("targetSuffix:"+targetSuffix+" targetName:"+targetName);
   }
 }

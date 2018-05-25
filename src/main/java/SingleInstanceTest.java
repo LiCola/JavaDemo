@@ -1,3 +1,5 @@
+import com.licola.llogger.LLogger;
+
 /**
  * Created by LiCola on 2017/11/30.
  */
@@ -7,18 +9,18 @@ public class SingleInstanceTest {
 
     SingleInit init=null;
     if (init==null){
-      System.out.println("init null");
+      LLogger.d("init null");
     }else {
-      System.out.println("init not null");
+      LLogger.d("init not null");
     }
-    System.out.println(SingleInit.getInstance());
+    LLogger.d(SingleInit.getInstance());
 
-//    System.out.println(SingleInit.name);
+//    LLogger.d(SingleInit.name);
 
 //   Thread threadInstance= new Thread(new Runnable() {
 //      @Override
 //      public void run() {
-//        System.out.println("work thread run");
+//        LLogger.d("work thread run");
 //        try {
 //          Thread.sleep(2000);
 //        } catch (InterruptedException e) {
@@ -26,7 +28,7 @@ public class SingleInstanceTest {
 //        }
 //        SingleInit init=null;
 //        Class<SingleInit> singleInitClass = SingleInit.class;
-//        System.out.println("define SingleInit class:"+singleInitClass);
+//        LLogger.d("define SingleInit class:"+singleInitClass);
 //
 //        try {
 //          Thread.sleep(2000);
@@ -35,7 +37,7 @@ public class SingleInstanceTest {
 //        }
 //
 //        init=SingleInit.getInstance();
-//        System.out.println(init.toString());
+//        LLogger.d(init.toString());
 //      }
 //    });
 //
@@ -43,6 +45,6 @@ public class SingleInstanceTest {
 //
 //    threadInstance.join();
 //
-//    System.out.println("main thread exit");
+//    LLogger.d("main thread exit");
   }
 }

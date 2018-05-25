@@ -1,4 +1,4 @@
-package compiler;
+package compiler; import com.licola.llogger.LLogger;
 
 /**
  * Created by 李可乐 on 2017/5/24.
@@ -27,25 +27,25 @@ public class MethodArgsTest {
     methodArgsTest.count(arg+1);
 
     int dataArg=10;
-    System.out.println("base arg old:"+dataArg);
+    LLogger.d("base arg old:"+dataArg);
     methodArgsTest.changeBaseArgs(dataArg);
-    System.out.println("base call change after:"+dataArg);
+    LLogger.d("base call change after:"+dataArg);
 
     MethodArgsTest methodArg=new MethodArgsTest();
-    System.out.println("reference arg old:"+methodArg);
+    LLogger.d("reference arg old:"+methodArg);
     methodArgsTest.changeReferenceArgs(methodArg);
-    System.out.println("reference call change after:"+methodArg);
+    LLogger.d("reference call change after:"+methodArg);
 
     String immStrArg="empty";
-    System.out.println("immutable object arg old:"+immStrArg);
+    LLogger.d("immutable object arg old:"+immStrArg);
     methodArgsTest.changeImmReferArg(immStrArg);
-    System.out.println("immutable object call change after:"+immStrArg);
+    LLogger.d("immutable object call change after:"+immStrArg);
 
 
   }
 
   private static void argsMethod(int d1, Integer... args) {
-    System.out.println(args.getClass());
+    LLogger.d(args.getClass());
   }
 
   int whenToEvaluateZing(int y) {
@@ -62,7 +62,7 @@ public class MethodArgsTest {
 
 
   int count(int data) {
-    System.out.println("call count args method data:"+ data);
+    LLogger.d("call count args method data:"+ data);
     return data * 2;
   }
 

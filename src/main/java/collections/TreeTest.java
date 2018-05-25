@@ -1,4 +1,4 @@
-package collections;
+package collections;import com.licola.llogger.LLogger;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -19,14 +19,14 @@ public class TreeTest {
     treeMap.put("a","abstract");
 
     for (Entry<String, String> entry : treeMap.entrySet()) {
-      System.out.println("key:"+entry.getKey()+" value:"+entry.getValue());
+      LLogger.d("key:"+entry.getKey()+" value:"+entry.getValue());
     }
 
-    System.out.println(treeMap.firstEntry());
-    System.out.println(treeMap.lastEntry());
+    LLogger.d(treeMap.firstEntry());
+    LLogger.d(treeMap.lastEntry());
 
-    System.out.println(treeMap.floorEntry("d"));
-    System.out.println(treeMap.ceilingEntry("d"));
+    LLogger.d(treeMap.floorEntry("d"));
+    LLogger.d(treeMap.ceilingEntry("d"));
 
 
   }

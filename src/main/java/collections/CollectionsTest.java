@@ -1,4 +1,4 @@
-package collections;
+package collections;import com.licola.llogger.LLogger;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -27,11 +27,11 @@ public class CollectionsTest {
     String[] array = new String[list.size()];
     array = list.toArray(array);
     array[0]="0";
-    System.out.println(list.get(0)==array[0]);
+    LLogger.d(list.get(0)==array[0]);
     Class class1= int[].class;
     Class class2= int.class;
 
-    System.out.println(class1==class2);
+    LLogger.d(class1==class2);
 
     String[] str = new String[] { "a", "b" };
     List list2 = Arrays.asList(str);

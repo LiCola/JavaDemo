@@ -1,3 +1,6 @@
+
+import com.licola.llogger.LLogger;
+
 /**
  * Created by LiCola on 2017/11/28.
  */
@@ -5,27 +8,27 @@ public class ClassLoaderTest {
 
   public static class TargetClass{
     static {
-      System.out.println("static block invoke");
+      LLogger.d("static block invoke");
     }
   }
 
   public static final void main(String[] args){
     ClassLoader classLoader=ClassLoaderTest.class.getClassLoader();
     while (classLoader!=null){
-      System.out.println(classLoader.getClass().getName());
+      LLogger.d(classLoader.getClass().getName());
       classLoader=classLoader.getParent();
     }
     //输出 Java类库的ClassLoader 系统ClassLoader由C++实现返回null
-    System.out.println(String.class.getClassLoader());
+    LLogger.d(String.class.getClassLoader());
 
 
     ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
-    System.out.println("ClassLoader 静态方法 能够得到默认的系统类加载器："+systemClassLoader);
+    LLogger.d("ClassLoader 静态方法 能够得到默认的系统类加载器："+systemClassLoader);
     try {
       Class<?> aClass = systemClassLoader.loadClass("java.util.ArrayList");
       ClassLoader loader = aClass.getClassLoader();
       //由于委派机制 及时使用Launcher$AppClassLoader加载器 加载类 但是ArrayList也是由BootStrap ClassLoader加载完成的
-      System.out.println("委派机制 使得指定加载器 会从BootStrap ClassLoader中加载 输出为:"+loader);
+      LLogger.d("委派机制 使得指定加载器 会从BootStrap ClassLoader中加载 输出为:"+loader);
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
     }

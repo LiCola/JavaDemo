@@ -1,3 +1,5 @@
+import com.licola.llogger.LLogger;
+
 /**
  * Created by LiCola on 2017/11/30.
  */
@@ -8,7 +10,7 @@ public class SingleInit {
   public volatile static SingleInit ourInstance;
 
   public static SingleInit getInstance() {
-//    System.out.println("static getInstance invoke");
+//    LLogger.d("static getInstance invoke");
     if (ourInstance == null) {
       ourInstance = new SingleInit();
     }
@@ -16,12 +18,12 @@ public class SingleInit {
   }
 
   private SingleInit() {
-//    System.out.println("single init method invoke this:" + this.toString());
+//    LLogger.d("single init method invoke this:" + this.toString());
   }
 
   static {
     name = "123s";
-//    System.out.println("single static block invoke");
+//    LLogger.d("single static block invoke");
   }
 
 }

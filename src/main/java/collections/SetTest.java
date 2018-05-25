@@ -1,4 +1,4 @@
-package collections;
+package collections;import com.licola.llogger.LLogger;
 
 import java.nio.channels.Channel;
 import java.util.ArrayList;
@@ -22,19 +22,19 @@ public class SetTest {
     hashSet.add(200);
     hashSet.add(300);
 //    hashSet.addAll(Arrays.asList(10,20));
-    System.out.println(hashSet);
+    LLogger.d(hashSet);
 
     TreeSet<Integer> treeSet=new TreeSet<>();
     treeSet.add(300);
     treeSet.add(200);
     treeSet.add(100);
-    System.out.println(treeSet);
+    LLogger.d(treeSet);
 
     LinkedHashSet<Integer> linkedHashSet=new LinkedHashSet<>();
     linkedHashSet.add(100);
     linkedHashSet.add(200);
     linkedHashSet.add(300);
-    System.out.println(linkedHashSet);
+    LLogger.d(linkedHashSet);
 
     
   }

@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/11/21.
@@ -30,9 +30,9 @@ public class VolatileTest implements Runnable {
 
   @Override
   public void run() {
-    System.out.println("进入 run 代码块");
+    LLogger.d("进入 run 代码块");
     while (isRunning()) {
     }
-    System.out.println("isRunning 被设置为 false 线程终止");
+    LLogger.d("isRunning 被设置为 false 线程终止");
   }
 }

@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -27,7 +27,7 @@ public class CountDownLatchTest {
     }
 
     latch.await();//主线程 等待子线程的倒计数完成 主从协同
-    System.out.println("collect worker results");
+    LLogger.d("collect worker results");
   }
 
 
@@ -63,7 +63,7 @@ public class CountDownLatchTest {
     public void run() {
       try {
         this.latch.await();
-        System.out.println(getName() + " start run " + System.currentTimeMillis());
+        LLogger.d(getName() + " start run " + System.currentTimeMillis());
       } catch (InterruptedException e) {
         e.printStackTrace();
       }

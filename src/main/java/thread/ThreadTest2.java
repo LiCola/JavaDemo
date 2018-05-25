@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/10/9.
@@ -24,7 +24,7 @@ public class ThreadTest2 {
       @Override
       public void run() {
         data = 1;
-        System.out.println("change data=1");
+        LLogger.d("change data=1");
       }
     });
 
@@ -32,7 +32,7 @@ public class ThreadTest2 {
       @Override
       public void run() {
         data = 2;
-        System.out.println("change data=2");
+        LLogger.d("change data=2");
       }
     });
 
@@ -42,7 +42,7 @@ public class ThreadTest2 {
     thread1.join();
     thread2.join();
 
-    System.out.println("data:" + data);
+    LLogger.d("data:" + data);
 
   }
 

@@ -1,3 +1,5 @@
+import com.licola.llogger.LLogger;
+
 /**
  * Created by 李可乐 on 2017/5/25.
  */
@@ -16,7 +18,7 @@ public class SupperClassTest {
         SupperClass supperClass1=new SupperClass();
         SupperClass supperClass2=new SubClass();
 
-        System.out.println(supperClass1.someVar);
-        System.out.println(supperClass2.someVar);
+        LLogger.d(supperClass1.someVar);
+        LLogger.d(supperClass2.someVar);
     }
 }

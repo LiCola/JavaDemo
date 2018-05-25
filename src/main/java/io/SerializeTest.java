@@ -1,9 +1,9 @@
 package io;
 
+import com.licola.llogger.LLogger;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -23,7 +23,7 @@ public class SerializeTest {
 
     writeTargetList(targetClasses);
     List<TargetClass> readObjects = readTargetList();
-    System.out.println(readObjects);
+    LLogger.d(readObjects);
 
   }
 

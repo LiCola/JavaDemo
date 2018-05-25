@@ -1,5 +1,5 @@
 package encrypt;
-
+import com.licola.llogger.LLogger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 

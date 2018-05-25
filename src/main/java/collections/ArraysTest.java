@@ -1,4 +1,4 @@
-package collections;
+package collections;import com.licola.llogger.LLogger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,9 +18,9 @@ public class ArraysTest {
   private static void testArrays() {
       int[] ints=new int[]{1,2,3,4};
     List list = Arrays.asList(ints);
-    System.out.println("list size :"+list.size());
+    LLogger.d("list size :"+list.size());
     for (Object o : list) {
-      System.out.println(o.toString());
+      LLogger.d(o.toString());
     }
 
   }
@@ -28,9 +28,9 @@ public class ArraysTest {
   private static void testStrings() {
     String[] arrays = new String[]{"e-hello", "c-world", "Break", "ability"};
     Arrays.sort(arrays, String.CASE_INSENSITIVE_ORDER);
-    System.out.println(Arrays.toString(arrays));
+    LLogger.d(Arrays.toString(arrays));
 
     String[] strings = Arrays.copyOf(arrays, 4);
-    System.out.println("strings = " + Arrays.toString(strings));
+    LLogger.d("strings = " + Arrays.toString(strings));
   }
 }

@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class ThreadTest {
       k += k * k + i;
     }
 
-    System.out.println("user time:"+(System.nanoTime()-t0)* 1E-6+"ms for:"+times);
+    LLogger.d("user time:"+(System.nanoTime()-t0)* 1E-6+"ms for:"+times);
   }
 
   private volatile static boolean shutdown=false;//内存不可见 添加volatile修饰符 会让内存对其他线程可见
@@ -44,7 +44,7 @@ public class ThreadTest {
       while(!shutdown){
         // do nothing
       }
-      System.out.println("exit hello");
+      LLogger.d("exit hello");
     }
   }
 
@@ -52,7 +52,7 @@ public class ThreadTest {
     new HelloThread().start();
     Thread.sleep(100);
     shutdown=true;
-    System.out.println("main thread exit");
+    LLogger.d("main thread exit");
   }
 
   private static int shared = 0;
@@ -72,8 +72,8 @@ public class ThreadTest {
     childThread1.join();
     childThread2.join();
 
-    System.out.println("shared: " + shared);
-    System.out.println("list: "+stringList);
+    LLogger.d("shared: " + shared);
+    LLogger.d("list: "+stringList);
   }
 
   private static class ChildThread extends Thread {
@@ -100,7 +100,7 @@ public class ThreadTest {
     long totalMemory = runtime.totalMemory();
     long freeMemory = runtime.freeMemory();
     int availableProcessors = runtime.availableProcessors();
-    System.out.println(String
+    LLogger.d(String
         .format("%s:%d,%s:%d,%s:%d", "availableProcessors", availableProcessors, "totalMemory",
             totalMemory, "freeMemory", freeMemory));
 
@@ -113,7 +113,7 @@ public class ThreadTest {
         @Override
         public void run() {
 
-          System.out.println(
+          LLogger.d(
               "running :" + Thread.currentThread() + " before:"
                   + threadTest.atomicInteger.get() + " alter:" + threadTest.atomicInteger
                   .incrementAndGet());
@@ -125,16 +125,16 @@ public class ThreadTest {
 
     while (true) {
       for (Thread thread : threads) {
-        System.out.println(
+        LLogger.d(
             thread.toString() + " status: " + thread.getState() + " isAlive: " + thread.isAlive()
                 + " isInterrupted: " + thread.isInterrupted());
       }
 
       if (threadTest.atomicInteger.get() >= size) {
-        System.out.println("Thread data = " + threadTest.atomicInteger.toString());
+        LLogger.d("Thread data = " + threadTest.atomicInteger.toString());
         return;
       } else {
-        System.out.println("not calculate finish");
+        LLogger.d("not calculate finish");
       }
     }
   }

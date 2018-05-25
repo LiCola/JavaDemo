@@ -1,5 +1,5 @@
 package classload;
-
+import com.licola.llogger.LLogger;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -17,10 +17,10 @@ public class ClassLoaderTest {
   }
 
   private static void testDiffClassLoad() {
-    System.out.println("String Class Loader:"+String.class.getClassLoader());
-    System.out.println("int Class Loader:"+int.class.getClassLoader());
-    System.out.println("HashMap Class Loader:"+HashMap.class.getClassLoader());
-    System.out.println("ClassLoaderTest Class Loader:"+ClassLoaderTest.class.getClassLoader());
+    LLogger.d("String Class Loader:"+String.class.getClassLoader());
+    LLogger.d("int Class Loader:"+int.class.getClassLoader());
+    LLogger.d("HashMap Class Loader:"+HashMap.class.getClassLoader());
+    LLogger.d("ClassLoaderTest Class Loader:"+ClassLoaderTest.class.getClassLoader());
   }
 
   private static void testMyClassLoad()
@@ -29,7 +29,7 @@ public class ClassLoaderTest {
       @Override
       public Class<?> loadClass(String name) throws ClassNotFoundException {
         String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
-        System.out.println("name:"+name+" filename:"+fileName);
+        LLogger.d("name:"+name+" filename:"+fileName);
 
         InputStream inputStream = getClass().getResourceAsStream(fileName);
         if (inputStream == null) {
@@ -49,9 +49,9 @@ public class ClassLoaderTest {
 
     Object object = mClassLoader.loadClass("classload.ClassLoaderTest").newInstance();
 
-    System.out.println(object.getClass());
+    LLogger.d(object.getClass());
 
-    System.out.println(object instanceof ClassLoaderTest);
+    LLogger.d(object instanceof ClassLoaderTest);
 
 
   }

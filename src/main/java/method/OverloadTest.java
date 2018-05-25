@@ -1,5 +1,5 @@
 package method;
-
+import com.licola.llogger.LLogger;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 
@@ -21,17 +21,17 @@ public class OverloadTest {
   }
 
   public void sayHi(Human human) {
-    System.out.println("hi human");
+    LLogger.d("hi human");
   }
 
 
   public void sayHi(Man man) {
-    System.out.println("hi man");
+    LLogger.d("hi man");
   }
 
 
   public void sayHi(Woman woman) {
-    System.out.println("hi woman");
+    LLogger.d("hi woman");
   }
 
   public static final void main(String[] args){

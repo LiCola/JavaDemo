@@ -1,3 +1,5 @@
+import com.licola.llogger.LLogger;
+
 public class BaseClassTest {
 
 
@@ -5,7 +7,7 @@ public class BaseClassTest {
     Base base = new Base() {
       @Override
       public void doSomething(String input) {
-        System.out.println("input = " + input);
+        LLogger.d("input = " + input);
       }
     };
 
@@ -28,7 +30,7 @@ public class BaseClassTest {
 
   public static class BaseArgs{
     void print(String... args){
-      System.out.println("base PrintUtils:"+args);
+      LLogger.d("base PrintUtils:"+args);
     }
 
     public int overload(int arg){
@@ -45,7 +47,7 @@ public class BaseClassTest {
 
     @Override
     void print(String[] args) {
-      System.out.println("sub PrintUtils:"+args);
+      LLogger.d("sub PrintUtils:"+args);
     }
   }
 }

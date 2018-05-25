@@ -1,5 +1,5 @@
 package interclass;
-
+import com.licola.llogger.LLogger;
 /**
  * Created by LiCola on 2017/6/13.
  */
@@ -15,8 +15,8 @@ public class OuterInnerStaticClassTest {
 
     public static class StaticInnerClass{
       public void innerMethod(){
-        System.out.println("inner call out class field:"+shared+" shared2:"+shared2+" shared3:"+shared3);
-        System.out.println("inner call out method :"+outerMethod());
+        LLogger.d("inner call out class field:"+shared+" shared2:"+shared2+" shared3:"+shared3);
+        LLogger.d("inner call out method :"+outerMethod());
       }
     }
 

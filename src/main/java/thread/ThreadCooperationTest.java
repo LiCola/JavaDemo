@@ -1,4 +1,4 @@
-package thread;
+package thread; import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/8/10.
@@ -23,7 +23,7 @@ public class ThreadCooperationTest {
             wait();
           }
         }
-        System.out.println(Thread.currentThread() + " fired!");
+        LLogger.d(Thread.currentThread() + " fired!");
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
@@ -40,7 +40,7 @@ public class ThreadCooperationTest {
     WaitThread waitThread = new WaitThread();
     waitThread.start();
     Thread.sleep(100);
-    System.out.println("main thread fire");
+    LLogger.d("main thread fire");
     waitThread.fire();
   }
 }

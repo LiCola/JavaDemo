@@ -1,5 +1,5 @@
 package thirdparty;
-
+import com.licola.llogger.LLogger;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
@@ -14,7 +14,7 @@ public class RxJavaTest {
         .subscribe(new Consumer<String>() {
           @Override
           public void accept(String s) throws Exception {
-            System.out.println("subscribe :"+s+" Thread:"+Thread.currentThread());
+            LLogger.d("subscribe :"+s+" Thread:"+Thread.currentThread());
           }
         });
   }

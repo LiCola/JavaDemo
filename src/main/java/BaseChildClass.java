@@ -1,3 +1,5 @@
+
+import com.licola.llogger.LLogger;
 /**
  * Created by LiCola on 2017/7/13.
  */
@@ -23,16 +25,16 @@ public class BaseChildClass {
   public  static class Base {
 
     static {
-      System.out.println("base static invoke");
+      LLogger.d("base static invoke");
     }
 
     public Base() {
-      System.out.println("base construction");
+      LLogger.d("base construction");
       test();
     }
 
     public  void test(){
-      System.out.println("base test invoke");
+      LLogger.d("base test invoke");
     }
   }
 
@@ -41,11 +43,11 @@ public class BaseChildClass {
     private int a = 123;
 
     public Child() {
-      System.out.println("child construction");
+      LLogger.d("child construction");
     }
 
     public void test() {
-      System.out.println(a);
+      LLogger.d(a);
     }
   }
 }
