@@ -17,5 +17,6 @@ public class RxJavaTest {
             LLogger.d("subscribe :"+s+" Thread:"+Thread.currentThread());
           }
         });
+
   }
 }

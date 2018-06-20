@@ -1,6 +1,8 @@
 package thread; import com.licola.llogger.LLogger;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
@@ -15,23 +17,43 @@ public class ThreadCollectionTest {
 
   public static final void main(String[] args) {
 //    final List<String> list = collections.synchronizedList(new ArrayList<>());
-    final CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();
-
 //    startSort(list);
 
 //    startModifyThread(list);
 //    startIteratorThread(list);
 
-    unsafeConcurrentUpdate();
-    ConcurrentHashMap<Integer,String> stringConcurrentHashMap=new ConcurrentHashMap<>();
-    stringConcurrentHashMap.put(10,"s");
+//    unsafeConcurrentUpdate();
+    unsafeConcurrentOperate();
+//    ConcurrentHashMap<Integer,String> stringConcurrentHashMap=new ConcurrentHashMap<>();
+//    stringConcurrentHashMap.put(10,"s");
+  }
+
+  private static void unsafeConcurrentOperate() {
+
+    ArrayList<Integer> arrayList=new ArrayList<>();
+
+    for (int i = 0; i < 10; i++) {
+      arrayList.add(i);
+    }
+
+
+
+//    new Thread(new Runnable() {
+//      @Override
+//      public void run() {
+//        for (int i = 0; i < arrayList.size(); i++) {
+//          LLogger.d(arrayList.get(i));
+//        }
+//      }
+//    }).start();
+
   }
 
   private static void unsafeConcurrentUpdate() {
-//    Map<Integer, Integer> map = new HashMap<>();
-    Map<Integer, Integer> map = new Hashtable<>();
+    HashMap<Integer, Integer> map = new HashMap<>();
+//    Map<Integer, Integer> map = new Hashtable<>();
 
-    int size = 100;
+    int size = 8;
     Thread[] threads = new Thread[size];
     Random random = new Random();
     for (int i = 0; i < size; i++) {
@@ -39,9 +61,9 @@ public class ThreadCollectionTest {
       threads[i] = new Thread() {
         @Override
         public void run() {
-          for (int j = 0; j < size; j++) {
-            int key = random.nextInt(size);
-            LLogger.d(Thread.currentThread().toString() + " key:" + key);
+          for (int j = 0; j < size<<2; j++) {
+            int key = random.nextInt();
+            LLogger.d( " key:" + key);
             map.put(key, j);
           }
         }

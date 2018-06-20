@@ -40,7 +40,7 @@ public class CharStreamTest {
       LLogger.d(in.nextLine());
       LLogger.d(in.nextLine());
     }catch(Exception e){
-      System.err.println(e.getMessage());
+      LLogger.e(e);
     }
   }
 

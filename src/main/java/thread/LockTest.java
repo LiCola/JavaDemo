@@ -14,6 +14,7 @@ public class LockTest {
 //    testCounter();
 //    testLockSupport();
     testLockOperate();
+
   }
 
   private static void testLockOperate() {

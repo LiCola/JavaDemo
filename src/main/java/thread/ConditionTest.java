@@ -1,5 +1,8 @@
-package thread; import com.licola.llogger.LLogger;
+package thread;
 
+import com.licola.llogger.LLogger;
+
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -13,49 +16,46 @@ public class ConditionTest implements Runnable {
   private Condition condition = lock.newCondition();
 
 
-  public static void println(Object object){
-    LLogger.d(System.currentTimeMillis()+"ms : "+object.toString());
-  }
-  
   @Override
   public void run() {
-    
+
     try {
-      println(
-          "work :isHeldByCurrentThread:" + lock.isHeldByCurrentThread() + " hasQueuedThreads:"
+      LLogger.d(
+          "锁是否被当前线程持有isHeldByCurrentThread:" + lock.isHeldByCurrentThread() + " 是否有线程在等待该锁hasQueuedThreads:"
               + lock.hasQueuedThreads());
       lock.lock();
-      println("work :get lock");
+      LLogger.d("get lock");
       try {
-//        println("work :block before await condition");
+//        LLogger.d("work :block before await condition");
 //        condition.await();
-//        println("work :await finish");
+//        LLogger.d("work :await finish");
 
         while (!fire) {
-          println("work :loop true entry block next await condition");
-          condition.await();
-          println("work :await finish next loop");
+          LLogger.d("loop true entry block next await condition");
+//          condition.awaitNanos(TimeUnit.MILLISECONDS.toNanos(100));//限期等待
+          condition.await();//无线等待
+          LLogger.d("await finish next loop");
         }
       } finally {
-        println("work :release lock");
+        LLogger.d("release lock");
         lock.unlock();
       }
-      println("work thread:meet the conditions  fired!");
+      LLogger.d("meet the conditions  fired!");
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
   }
 
   private void fire() {
-    println(
-        "main :isHeldByCurrentThread:" + lock.isHeldByCurrentThread() + " hasQueuedThreads:" + lock
+    LLogger.d(
+        "锁是否被当前线程持有isHeldByCurrentThread:" + lock.isHeldByCurrentThread() + " 是否有线程在等待该锁hasQueuedThreads:" + lock
             .hasQueuedThreads());
     lock.lock();
     try {
       this.fire = true;
-      println("main :get lock");
+      LLogger.d("get lock");
       condition.signal();
-      println("main :signal");
+      LLogger.d("signal");
     } finally {
       lock.unlock();
     }
@@ -74,11 +74,14 @@ public class ConditionTest implements Runnable {
      */
     fireThread.start();
 
-    println("main sleep!");
+    LLogger.d("sleep!");
     Thread.sleep(1000);
-    println("main invoke fire!");
-    conditionTest.fire();
+//    LLogger.d(" invoke fire!");
+    LLogger.d("never invoke fire! next entry looper");
+//    conditionTest.fire();
+    while (true){
 
+    }
 
   }
 }

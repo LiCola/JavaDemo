@@ -14,7 +14,7 @@ public class ConcurrentHashMapTest {
     ConcurrentHashMap<String,Integer> concurrentHashMap=new ConcurrentHashMap<>();
     concurrentHashMap.put("a",1);
     concurrentHashMap.put("b",2);
-
+    concurrentHashMap.get("a");
     LLogger.d(concurrentHashMap.size());
   }
 

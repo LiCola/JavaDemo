@@ -7,6 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -16,11 +17,11 @@ import java.util.TreeMap;
 public class MapTest {
 
   public static final void main(String[] args) {
-//    testMap();
+    testMap();
 //    testTree();
 //    testSet();
 //    testLinked();
-    testDelete();
+//    testDelete();
   }
 
   private static void testDelete() {
@@ -126,6 +127,15 @@ public class MapTest {
   }
 
   private static void testMap() {
+
+    HashMap<Integer,String> hashMap=new HashMap<>();
+
+
+    for (int i = 0; i < 64; i++) {
+      hashMap.put(i,"time:"+i);
+    }
+
+
 //    HashMap<SameHash,String> map=new HashMap<>();
 //    for (int i = 0; i < 128; i++) {
 //      map.put(new SameHash(i),"value:"+i);
@@ -133,11 +143,11 @@ public class MapTest {
 //
 //    LLogger.d(map.entrySet());
 
-    OverHashMap<OverEquals,String> overEqualsStringHashMap=new OverHashMap<>();
-
-    OverEquals overEquals = new OverEquals(10);
-    overEqualsStringHashMap.put(overEquals,"o10");
-    overEqualsStringHashMap.put(new OverEquals(10),"o20");
+//    OverHashMap<OverEquals,String> overEqualsStringHashMap=new OverHashMap<>();
+//
+//    OverEquals overEquals = new OverEquals(10);
+//    overEqualsStringHashMap.put(overEquals,"o10");
+//    overEqualsStringHashMap.put(new OverEquals(10),"o20");
 
 
   }
