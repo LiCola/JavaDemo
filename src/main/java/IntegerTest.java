@@ -10,6 +10,8 @@ public class IntegerTest {
 //        testOperate();
     testHeightOperate();
     testBitOneBitCount();
+
+    Integer v1=1;
   }
 
   private static void testBitOneBitCount() {

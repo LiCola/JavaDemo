@@ -15,7 +15,7 @@ public class ByteStreamTest {
 
   public static final void main(String[] args) throws IOException, ClassNotFoundException {
 
-    File file = new File("./src/javaer/io/ByteTestFile.txt");
+    File file = new File("./src/main/java/io/ByteTestFile.txt");
     fileBufferOutStream(file);
 //    fileInputStream(file);
 //    fileBufferInputStream(file);

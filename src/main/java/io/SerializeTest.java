@@ -30,7 +30,7 @@ public class SerializeTest {
   public static void writeTargetList(List<TargetClass> list) throws IOException {
     ObjectOutputStream outputStream = null;
     outputStream = new ObjectOutputStream(
-        new BufferedOutputStream(new FileOutputStream("./src/javaer/io/TargetObject.txt")));
+        new BufferedOutputStream(new FileOutputStream("./src/main/java/io/TargetObject.txt")));
     try {
       outputStream.writeInt(list.size());
       for (TargetClass targetClass : list) {
@@ -43,7 +43,7 @@ public class SerializeTest {
 
   public static List<TargetClass> readTargetList() throws IOException, ClassNotFoundException {
     ObjectInputStream inputStream = new ObjectInputStream(
-        new BufferedInputStream(new FileInputStream("./src/javaer/io/TargetObject.txt")));
+        new BufferedInputStream(new FileInputStream("./src/main/java/io/TargetObject.txt")));
     try {
       int size = inputStream.readInt();
       ArrayList<TargetClass> list = new ArrayList<>(size);

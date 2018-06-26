@@ -32,8 +32,8 @@ public class CharStreamTest {
 
   private static void SystemScanner() throws UnsupportedEncodingException, FileNotFoundException {
     System.setIn(new ByteArrayInputStream("hello".getBytes("UTF-8")));
-    System.setOut(new PrintStream("./src/javaer/io/out.txt"));
-    System.setErr(new PrintStream("./src/javaer/io/err.txt"));
+    System.setOut(new PrintStream("./src/main/java/io/out.txt"));
+    System.setErr(new PrintStream("./src/main/java/io/err.txt"));
 
     try{
       Scanner in = new Scanner(System.in);

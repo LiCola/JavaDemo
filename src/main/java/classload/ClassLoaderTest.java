@@ -13,7 +13,7 @@ public class ClassLoaderTest {
   public static final void main(String[] args)
       throws ClassNotFoundException, IllegalAccessException, InstantiationException {
     testMyClassLoad();
-    testDiffClassLoad();
+//    testDiffClassLoad();
   }
 
   private static void testDiffClassLoad() {
@@ -52,7 +52,6 @@ public class ClassLoaderTest {
     LLogger.d(object.getClass());
 
     LLogger.d(object instanceof ClassLoaderTest);
-
 
   }
 }
