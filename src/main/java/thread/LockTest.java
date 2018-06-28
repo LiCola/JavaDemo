@@ -19,7 +19,7 @@ public class LockTest {
 
   private static void testLockOperate() {
     ReentrantReadWriteLock lock=new ReentrantReadWriteLock();
-    lock.writeLock();
+    lock.writeLock().lock();
   }
 
   private static void testLockSupport() throws InterruptedException {

@@ -1,26 +1,15 @@
 package thirdparty.okhttp;
 
 import com.licola.llogger.LLogger;
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
 import okhttp3.Cache;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.FormBody;
-import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.Request.Builder;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.Buffer;
-import okio.BufferedSource;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 /**
  * Created by LiCola on 2018/6/4.
@@ -57,24 +46,24 @@ public class OkHttpTest {
     try {
       Response response = client.newCall(request).execute();
       LLogger.d(response.toString());
-      LLogger.d(response.body().string());
+      LLogger.json(new JSONObject(response.body().string()));
 
     } catch (IOException e) {
       e.printStackTrace();
     }
 
 
-    Request request2 = new Builder()
-//        .url("http://chileme.d0575.net/user/other?user_id=2")
-        .url("http://square.github.io/okhttp/")
-        .build();
-    try {
-      Response response = client.newCall(request2).execute();
-      LLogger.d(response.toString());
-      LLogger.d(response.body().string());
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+//    Request request2 = new Builder()
+////        .url("http://chileme.d0575.net/user/other?user_id=2")
+//        .url("http://square.github.io/okhttp/")
+//        .build();
+//    try {
+//      Response response = client.newCall(request2).execute();
+//      LLogger.d(response.toString());
+//      LLogger.d(response.body().string());
+//    } catch (IOException e) {
+//      e.printStackTrace();
+//    }
 
 
   }
