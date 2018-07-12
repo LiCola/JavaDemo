@@ -1,4 +1,4 @@
-package io;import com.licola.llogger.LLogger;
+package socket;import com.licola.llogger.LLogger;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by LiCola on 2018/3/29.
  */
-public class SocketServer {
+public class SocketTCPServer {
 
   private static final int PORT = 9999;
   private List<Socket> mSockets = new ArrayList<>();
@@ -27,10 +27,10 @@ public class SocketServer {
   private String sendMsg;
 
   public static final void main(String[] args) {
-    new SocketServer();
+    new SocketTCPServer();
   }
 
-  public SocketServer() {
+  public SocketTCPServer() {
     try {
       mServerSocket = new ServerSocket(PORT);
       mExecutorService = Executors.newCachedThreadPool();

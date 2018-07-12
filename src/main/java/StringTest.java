@@ -8,6 +8,11 @@ import com.licola.llogger.LLogger;
  */
 public class StringTest {
 
+  public static final String PREFIX="prefix";
+  public static final String SUFFIX="suffix";
+
+  public static final String JOIN=PREFIX+SUFFIX;
+
   public static void main(String[] args) throws UnsupportedEncodingException {
 
 //    String value1 = testInit();
@@ -16,6 +21,10 @@ public class StringTest {
 
     testCode();
 
+  }
+
+  public void join(){
+    String with=PREFIX+SUFFIX;
   }
 
   private static void testCode() throws UnsupportedEncodingException {

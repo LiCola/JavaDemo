@@ -15,13 +15,13 @@ public class ThreadTest {
 
 //    testAtomicOperate();
 //    testShareMemory();
-//    testShutdown();
+    testShutdown();
 
-    int[] timesList=new int[]{10,10,100,1000,10000,100000,1000000,10000000,100000000};
-    for (int times :
-        timesList) {
-      testFori(times);
-    }
+//    int[] timesList=new int[]{10,10,100,1000,10000,100000,1000000,10000000,100000000};
+//    for (int times :
+//        timesList) {
+//      testFori(times);
+//    }
   }
 
   private static void testFori(int times) {
@@ -49,8 +49,9 @@ public class ThreadTest {
   }
 
   private static void testShutdown() throws InterruptedException {
+    LLogger.d("HelloThread thread start");
     new HelloThread().start();
-    Thread.sleep(100);
+    Thread.sleep(1000);
     shutdown=true;
     LLogger.d("main thread exit");
   }
