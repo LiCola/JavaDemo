@@ -10,7 +10,11 @@ public class ConcurrentHashMapTest {
 
 
   public static final void main(String[] args) {
-//    testIterator();
+//    testBase();
+    testIterator();
+  }
+
+  private static void testBase() {
     ConcurrentHashMap<String,Integer> concurrentHashMap=new ConcurrentHashMap<>();
     concurrentHashMap.put("a",1);
     concurrentHashMap.put("b",2);
@@ -47,7 +51,7 @@ public class ConcurrentHashMapTest {
       e.printStackTrace();
     }
 
-    map.put("a","call");
+    map.put("a","able");
     try {
       threadGet.join();
     } catch (InterruptedException e) {

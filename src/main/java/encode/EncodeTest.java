@@ -2,7 +2,6 @@ package encode;
 
 import com.licola.llogger.LLogger;
 import java.nio.charset.Charset;
-import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import okio.ByteString;
 
@@ -11,7 +10,7 @@ import okio.ByteString;
  */
 public class EncodeTest {
 
-  public static final void main(String[] args) throws NoSuchAlgorithmException {
+  public static final void main(String[] args) {
 
     String input = "123";
     String md5Encode = ByteString.encodeUtf8(input).md5().hex();

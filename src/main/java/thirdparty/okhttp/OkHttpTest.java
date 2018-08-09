@@ -69,7 +69,7 @@ public class OkHttpTest {
     return new OkHttpClient.Builder()
         //        .addInterceptor(new MyInterceptor())
         .addInterceptor(new NetHandlerErrorInterceptor())
-        .addNetworkInterceptor(new NetworkErrorInterceptor())
+//        .addNetworkInterceptor(new NetworkErrorInterceptor())
         .cache(new Cache(cacheDir, 1024))
         .build();
   }
