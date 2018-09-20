@@ -13,5 +13,7 @@ public class MathTest {
     double ceil = Math.ceil(11.3);
     double ceilMinus = Math.ceil(-11.3);
     LLogger.d("ceil:"+ceil+" ceilMinus:"+ceilMinus);
+
+
   }
 }

@@ -20,7 +20,7 @@ public class MapTest {
     testMap();
 //    testTree();
 //    testSet();
-//    testLinked();
+    testLinked();
 //    testDelete();
   }
 
@@ -55,7 +55,8 @@ public class MapTest {
     accessMap.put("a", 500);
 //    accessMap.get("c");
     accessMap.put("d", 300);
-    for (Entry<String, Integer> stringIntegerEntry : accessMap.entrySet()) {
+    Set<Entry<String, Integer>> entries = accessMap.entrySet();
+    for (Entry<String, Integer> stringIntegerEntry : entries) {
       LLogger.d("key:"+stringIntegerEntry.getKey()+" value:"+stringIntegerEntry.getValue());
     }
 
