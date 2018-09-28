@@ -1,4 +1,6 @@
-package thread; import com.licola.llogger.LLogger;
+package thread;
+
+import com.licola.llogger.LLogger;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -8,21 +10,19 @@ import java.util.concurrent.CountDownLatch;
 public class CountDownLatchTest {
 
   public static final void main(String[] args) throws InterruptedException {
-//    testMainAwaitWork();
-    testWorkAwaitMain();
+    testMainAwaitWork();
+//    testWorkAwaitMain();
   }
 
   /**
-   * 主从协作模式
-   * 主线程依赖子线程的结果，需要等待子线程们工作结束
-   * @throws InterruptedException
+   * 主从协作模式 主线程依赖子线程的结果，需要等待子线程们工作结束
    */
   private static void testWorkAwaitMain() throws InterruptedException {
-    int num=100;
-    CountDownLatch latch=new CountDownLatch(num);
-    Thread[] threads=new Thread[num];
-    for (int i=0;i<num;i++){
-      threads[i]=new Worker(latch);
+    int num = 100;
+    CountDownLatch latch = new CountDownLatch(num);
+    Thread[] threads = new Thread[num];
+    for (int i = 0; i < num; i++) {
+      threads[i] = new Worker(latch);
       threads[i].start();
     }
 
@@ -43,13 +43,14 @@ public class CountDownLatchTest {
       threads[i].start();
     }
 
+
+    LLogger.d("main will sleep after count down");
     Thread.sleep(1000);
     latch.countDown();
   }
 
   /**
-   * 同时开始场景中，运行员线程等待主裁判线程发出开始指令的信号，
-   * 一旦发出后，所有运动员线程同时开始，计数初始为1，运动员线程调用await，主线程调用countDown，
+   * 同时开始场景中，运行员线程等待主裁判线程发出开始指令的信号， 一旦发出后，所有运动员线程同时开始，计数初始为1，运动员线程调用await，主线程调用countDown，
    */
   public static class Racer extends Thread {
 
@@ -61,9 +62,10 @@ public class CountDownLatchTest {
 
     @Override
     public void run() {
+//      LLogger.d(this + "entry await block");
       try {
         this.latch.await();
-        LLogger.d(getName() + " start run " + System.currentTimeMillis());
+        LLogger.d(this + "await finish");
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
@@ -91,7 +93,7 @@ public class CountDownLatchTest {
 
       } catch (InterruptedException e) {
         e.printStackTrace();
-      }finally {
+      } finally {
         this.latch.countDown();
       }
     }

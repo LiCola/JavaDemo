@@ -11,6 +11,8 @@ import java.util.concurrent.Future;
  * Created by LiCola on 2017/10/11.
  */
 public class FutureTest {
+
+
   public static final void main(String[] args) throws InterruptedException {
     workTaskInteger();
   }

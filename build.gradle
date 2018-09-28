@@ -21,7 +21,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //时间相关
-    implementation 'joda-time:joda-time:2.9.9'
+    implementation 'joda-time:joda-time:2.10'
 
     //io
     implementation 'com.squareup.okio:okio:1.13.0'
@@ -47,4 +47,5 @@ dependencies {
     implementation 'com.google.auto.service:auto-service:1.0-rc3'
     //自动生成代码
     implementation 'com.squareup:javapoet:1.9.0'
+
 }

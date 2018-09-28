@@ -6,7 +6,6 @@ import com.squareup.javapoet.TypeSpec;
 import java.io.File;
 import java.io.IOException;
 import javax.lang.model.element.Modifier;
-import com.sun.source.util.TreePath;
 
 
 /**
