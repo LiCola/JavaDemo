@@ -5,30 +5,33 @@ import com.google.gson.reflect.TypeToken;
 import com.licola.llogger.LLogger;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author LiCola
  * @date 2018/9/7
  */
-public class GonsTest {
+public class GsonTest {
 
-  static final String JSON_OBJECT_FORMAT = "{\"name\":\"123\"}";
-  static final String JSON_ARRAY_FORMAT = "[{\"name\":\"123\"},{\"name\":\"321\"}]";
 
   public static final void main(String[] args) {
     Gson gson = new Gson();
-//    Bean bean = gson.fromJson(JSON_OBJECT_FORMAT, Bean.class);
-//    LLogger.d(bean.getName());
 
+    Bean bean = new Bean("Str", 10);
 
-    Type type = new TypeToken<List<Bean>>() {
-    }.getType();
-    List<Bean> arrayJson = gson.fromJson(JSON_ARRAY_FORMAT,type);
-    LLogger.d(arrayJson.getClass());
-    for (Bean bean : arrayJson) {
-      LLogger.d(bean);
-    }
+    String toJson = gson.toJson(bean);
+    LLogger.d(toJson);
+
+    Bean bean1 = new Bean("int", 1);
+
+    List<Bean> beans = Arrays.asList(bean, bean1);
+
+    String toJsonArray = gson.toJson(beans);
+    LLogger.d(toJsonArray);
+
+    List list = gson.fromJson(toJsonArray, List.class);
+    LLogger.d(list.get(0));
 
 
   }
@@ -38,15 +41,15 @@ public class GonsTest {
 
     private String name;
 
+    private int version;
+
     public Bean() {
-
     }
 
-
-    public Bean(String name) {
+    public Bean(String name, int version) {
       this.name = name;
+      this.version = version;
     }
-
 
     public String getName() {
       return name;
@@ -56,10 +59,19 @@ public class GonsTest {
       this.name = name;
     }
 
+    public int getVersion() {
+      return version;
+    }
+
+    public void setVersion(int version) {
+      this.version = version;
+    }
+
     @Override
     public String toString() {
       return "Bean{" +
           "name='" + name + '\'' +
+          ", version=" + version +
           '}';
     }
   }
