@@ -17,7 +17,7 @@ import java.util.TreeMap;
 public class MapTest {
 
   public static final void main(String[] args) {
-    testMap();
+//    testMap();
 //    testTree();
 //    testSet();
     testLinked();

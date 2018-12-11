@@ -23,6 +23,7 @@ public class FutureTest {
 
 
     Thread.sleep(1000);
+    
 
     LLogger.d("主线程等待");
 
@@ -42,8 +43,8 @@ public class FutureTest {
 
     @Override
     public Integer call() throws Exception {
-      LLogger.d("Call thread:"+Thread.currentThread());
       int sleepSeconds=new Random().nextInt(1000);
+      LLogger.d(Thread.currentThread(),sleepSeconds);
       Thread.sleep(sleepSeconds);
       return sleepSeconds;
     }

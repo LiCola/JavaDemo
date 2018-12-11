@@ -32,7 +32,6 @@ public class InitClassTest {
 
     Thread thread1 = new Thread(script);
     Thread thread2 = new Thread(script);
-
     thread1.start();
     thread2.start();
   }

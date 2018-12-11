@@ -2,8 +2,10 @@ package thirdparty.okhttp;
 
 import com.licola.llogger.LLogger;
 import java.io.IOException;
+import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
+import okhttp3.Request.Builder;
 import okhttp3.Response;
 
 /**
@@ -15,6 +17,13 @@ public class NetHandlerErrorInterceptor implements Interceptor {
   public Response intercept(Chain chain) throws IOException {
     LLogger.d("错误处理-拦截器开始");
     Request request = chain.request();
+
+    HttpUrl httpUrl = request.url();
+
+    HttpUrl newUrl = httpUrl.newBuilder()
+        .build();
+
+
     Response response = chain.proceed(request);
 
     if (!response.isSuccessful()){

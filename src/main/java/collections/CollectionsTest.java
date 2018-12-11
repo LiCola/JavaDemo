@@ -12,12 +12,16 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by LiCola on 2017/10/20.
  */
 public class CollectionsTest {
+
+
   public static final void main(String[] args){
 //    baseTest();
-    baseArray();
+    baseCollection();
   }
 
-  private static void baseArray() {
+  private static void baseCollection(){
+    List<Void> objects = Collections.singletonList(null);
+    LLogger.d(objects);
   }
 
   private static void baseTest() {

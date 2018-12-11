@@ -1,24 +1,17 @@
 import com.licola.llogger.LLogger;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class ObjectTest {
 
-  public HashMap<String,String> hashMap=new HashMap<>();
-  public static HashMap<String,Boolean> hashMapStatic=new HashMap<>();
-  private HashMap<String,Integer> integerHashMap=new HashMap<>();
-
 
   public static final void main(String[] args){
-    LLogger.d("name");
-    List<String> stringList =new ArrayList<String>();
-    stringList.add("we");
+    Void v=null;
+    List<Void> voids=new ArrayList<>();
+    voids.add(null);
 
-    String s = stringList.get(0);
-
-    String string="12";
-    Integer integer = Integer.valueOf(string);
-    LLogger.d(integer);
+    LLogger.d(voids);
   }
+
+
 }

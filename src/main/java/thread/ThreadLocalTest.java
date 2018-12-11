@@ -35,8 +35,8 @@ public class ThreadLocalTest {
       }
     });
 
-    localStr.set("每个线程都能和ThreadLocal线程本地变量关联起来，而且一个线程可以关联多个ThreadLocal");
     localInt.set(100);
+    localStr.set("每个线程都能和ThreadLocal线程本地变量关联起来，而且一个线程可以关联多个ThreadLocal");
     childThread.start();
     childThread.join();
 

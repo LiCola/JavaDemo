@@ -1,5 +1,6 @@
 package thirdparty;
 
+import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
@@ -27,7 +28,6 @@ public class JavaPoetTest {
         .addException(IOException.class)
         .returns(TypeName.VOID)
         .build();
-
 
     TypeSpec helloWorld = TypeSpec.classBuilder("HelloWorldByJavaPoet")
         .addJavadoc("test doc 中文")

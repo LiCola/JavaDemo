@@ -22,7 +22,6 @@ public class ArraysTest {
     for (Object o : list) {
       LLogger.d(o.toString());
     }
-
   }
 
   private static void testStrings() {
@@ -32,5 +31,8 @@ public class ArraysTest {
 
     String[] strings = Arrays.copyOf(arrays, 4);
     LLogger.d("strings = " + Arrays.toString(strings));
+
+    ArrayList<String> arrayList=new ArrayList<>();
+    arrayList.clear();
   }
 }
