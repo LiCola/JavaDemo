@@ -21,4 +21,15 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
   protected boolean removeEldestEntry(Entry<K, V> eldest) {
     return size() > max;
   }
+
+  public static final void main(String[] args){
+    LinkedHashMap<String,String> cacheMap=new LRUCache<>(3);
+    cacheMap.put("a","abstract");
+    cacheMap.put("b","basic");
+    cacheMap.put("c","call");
+    cacheMap.get("a");
+
+    cacheMap.put("d","call");
+    LLogger.d(cacheMap);
+  }
 }

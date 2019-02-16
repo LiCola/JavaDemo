@@ -48,26 +48,29 @@ public class MapTest {
   }
 
   private static void testLinked() {
-    LinkedHashMap<String,Integer> accessMap=new LinkedHashMap<>(16,0.75f,true);
+    LinkedHashMap<String,Integer> accessOrderMap=new LinkedHashMap<>(16,0.75f,true);
 
-    accessMap.put("c", 100);
-    accessMap.put("d", 200);
-    accessMap.put("a", 500);
-//    accessMap.get("c");
-    accessMap.put("d", 300);
-    Set<Entry<String, Integer>> entries = accessMap.entrySet();
-    for (Entry<String, Integer> stringIntegerEntry : entries) {
-      LLogger.d("key:"+stringIntegerEntry.getKey()+" value:"+stringIntegerEntry.getValue());
+    accessOrderMap.put("c", 100);
+    accessOrderMap.put("d", 200);
+    accessOrderMap.put("a", 500);
+//    accessOrderMap.get("c");
+    accessOrderMap.put("d", 300);
+    LLogger.d("访问有序");
+    for (Entry<String, Integer> entry : accessOrderMap.entrySet()) {
+      LLogger.d(entry.getKey(),entry.getValue());
     }
 
-    LinkedHashMap<String,String> cacheMap=new LRUCache<>(3);
-    cacheMap.put("a","abstract");
-    cacheMap.put("b","basic");
-    cacheMap.put("c","call");
-    cacheMap.get("a");
+    LinkedHashMap<String,Integer> putOrderMap=new LinkedHashMap<>();
 
-    cacheMap.put("d","call");
-    LLogger.d(cacheMap);
+    putOrderMap.put("a",100);
+    putOrderMap.put("b",200);
+    putOrderMap.put("c",300);
+
+    LLogger.d("插入有序");
+    for (Entry<String, Integer> entry : putOrderMap.entrySet()) {
+      LLogger.d(entry.getKey(),entry.getValue());
+    }
+
   }
 
   private static void testSet() {

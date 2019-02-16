@@ -20,7 +20,8 @@ public class StringTest {
 //    testWrap();
 
     testCode();
-
+    String target = "https://uboxs-img.oss-cn-hangzhou.aliyuncs.com/hbc.zip";
+    LLogger.d(target);
 
   }
 
