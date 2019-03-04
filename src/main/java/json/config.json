@@ -1,0 +1,98 @@
+{
+  "actions": [
+    {
+      "actionMaskGifName": "b7d8dad01b72c1e64c3ff5bf684e81b5.gif",
+      "aimImageName": "f0ae7e4f04a43b5027f2fe1061a405b0.png",
+      "duration": 4,
+      "startTime": 0
+    },
+    {
+      "actionMaskGifName": "fba827f5d48e6659748b4a7682c50a6e.gif",
+      "aimImageName": "b8566694ac172ae970dd78b9fc136047.png",
+      "duration": 3,
+      "startTime": 4
+    },
+    {
+      "actionMaskGifName": "a071575ea0c633c39838ba8cf8efa7d5.gif",
+      "aimImageName": "8a4f3814a2d456d619874500f790ea53.png",
+      "duration": 3,
+      "startTime": 7
+    }
+  ],
+  "masks": [],
+  "pasters": [
+    {
+      "name": "\u9ed8\u8ba4\u8d34\u7eb8",
+      "fileName": "49446e5f61508334d201007472a8c7b0.jpg",
+      "images": [
+        {
+          "startIndex": 0,
+          "startOffsetTime": 0,
+          "endIndex": 3,
+          "endOffsetTime": 0,
+          "isGif": true,
+          "fileName": "914319100f6727c2fce124528fd7bfe2",
+          "indexStartTime": 0
+        }
+      ],
+      "transitions": [],
+      "effects": [
+        {
+          "name": "\u6296\u52a8",
+          "startIndex": 0,
+          "startOffsetTime": 0,
+          "endIndex": 0,
+          "endOffsetTime": 2
+        },
+        {
+          "name": "\u91cd\u5f71",
+          "startIndex": 1,
+          "startOffsetTime": 0,
+          "endIndex": 1,
+          "endOffsetTime": 3
+        }
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "name": "\u767e\u53f6\u7a97",
+      "index": 1,
+      "duration": 0.3
+    }
+  ],
+  "templateId": "2",
+  "templateName": "\u676d\u5e2e\u83dc",
+  "duration": 10,
+  "templateCoverName": "https:\/\/uboxs-img.oss-cn-hangzhou.aliyuncs.com\/534f2292ff5f4d5c0dfda8c92bd80dd5.jpg",
+  "templateSampleVideoName": "856968c1db902fed2e3377e8bc48c99e.mp4",
+  "coverCaptureTime": 9,
+  "filter": "\u7126\u9ec4",
+  "musics": [
+    {
+      "name": "\u6c5f\u5357\u6700\u5fc6",
+      "duration": 10,
+      "mixWeight": 50,
+      "fileName": "e0be53c02609c24f8a7b83fe9a83ef43.mp3",
+      "startTime": 0,
+      "cover": "1fb760891a50de904e5f7b880d3b41b1.jpg"
+    }
+  ],
+  "sections": [
+    {
+      "duration": 4,
+      "hint": "\u955c\u5934\u5411\u53f3\u73af\u7ed5\u7f8e\u98df\u6162\u6162\u79fb\u52a8",
+      "startTime": 0
+    },
+    {
+      "duration": 3,
+      "hint": "\u955c\u5934\u4fdd\u6301\u7a33\u5b9a\u4e0d\u52a8",
+      "startTime": 4
+    },
+    {
+      "duration": 3,
+      "hint": "\u955c\u5934\u4fdd\u6301\u7a33\u5b9a\u4e0d\u52a8",
+      "startTime": 7
+    }
+  ]
+}

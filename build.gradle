@@ -21,6 +21,7 @@ dependencies {
     //json
     implementation "org.json:json:20180130"
     implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.alibaba:fastjson:1.2.55'
 
     //时间相关
     implementation 'joda-time:joda-time:2.10'
