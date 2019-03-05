@@ -1,14 +1,28 @@
-group 'Licola'
-version '1.0-SNAPSHOT'
-
-apply plugin: 'java'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-    jcenter()
+plugins {
+    id 'me.champeau.gradle.jmh' version "0.4.8"
 }
+
+allprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    group 'Licola'
+    version '1.0-SNAPSHOT'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+}
+
+apply plugin: 'me.champeau.gradle.jmh'
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
@@ -50,5 +64,22 @@ dependencies {
     implementation 'com.google.auto.service:auto-service:1.0-rc3'
     //自动生成代码
     implementation 'com.squareup:javapoet:1.9.0'
+
+//    jmh 'org.openjdk.jmh:jmh-core:0.9'
+//    jmh 'org.openjdk.jmh:jmh-generator-annprocess:0.9'
+
+}
+
+
+jmh {
+    include = ['demo\\.LockRunTest\\.*']
+    humanOutputFile = null
+    iterations = 2
+    benchmarkMode = ['thrpt']
+    fork = 1
+    threads = 2
+    warmupIterations = 2
+
+    jmhVersion = '1.21'
 
 }

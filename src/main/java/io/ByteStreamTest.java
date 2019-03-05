@@ -1,4 +1,5 @@
-package io;import com.licola.llogger.LLogger;
+package io;
+
 import com.licola.llogger.LLogger;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
