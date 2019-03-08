@@ -75,7 +75,8 @@ static def releaseTime() {
     return new Date().format("yyyy-MM-dd-HH-mm")
 }
 
-
+//Gradle侧栏
+//先clean清理-jmhCompileGeneratedClasses生成测试代码-jmh执行测试代码
 jmh {
     include = ['demo\\.IntegerAddTest\\.*']
 //    include = ['demo\\.StringAddTest\\.*']
@@ -90,7 +91,7 @@ jmh {
     iterations = 4
     timeUnit = 'ms' // Output time unit. Available time units are: [m, s, ms, us, ns].
     fork = 2
-    threads = 8 // Number of worker threads to run with.
+    threads = 2 // Number of worker threads to run with.
     warmup = '1s' // Time to spend at each warmup iteration.
     warmupIterations = 2
     jmhVersion = '1.21'

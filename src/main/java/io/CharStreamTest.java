@@ -20,7 +20,7 @@ public class CharStreamTest {
 
   public static final void main(String[] args) throws IOException {
 
-//    File file=new File("./src/javaer/io/CharTestFile.txt");
+//    File file=new File("./src/java/io/CharTestFile.txt");
 //    fileOutputStreamWriter(file);
 //    fileInputStreamReader(file);
 
