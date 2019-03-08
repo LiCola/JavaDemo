@@ -1,0 +1,4 @@
+Benchmark                       Mode  Cnt       Score       Error   Units
+IntegerAddTest.testAtomicLong  thrpt    8   34595.099 ±  1255.446  ops/ms
+IntegerAddTest.testLongAdder   thrpt    8  523857.103 ± 15299.127  ops/ms
+IntegerAddTest.testSynAdder    thrpt    8   17899.965 ±   689.941  ops/ms

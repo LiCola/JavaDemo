@@ -70,16 +70,28 @@ dependencies {
 
 }
 
+//生成时间
+static def releaseTime() {
+    return new Date().format("yyyy-MM-dd-HH-mm")
+}
+
 
 jmh {
-    include = ['demo\\.LockRunTest\\.*']
-    humanOutputFile = null
-    iterations = 2
+    include = ['demo\\.IntegerAddTest\\.*']
+//    include = ['demo\\.StringAddTest\\.*']
     benchmarkMode = ['thrpt']
-    fork = 1
-    threads = 2
+// Benchmark mode. Available modes are: [Throughput/thrpt, AverageTime/avgt, SampleTime/sample, SingleShotTime/ss, All/all]
+    humanOutputFile = project.file("${project.rootDir}/reports/jmh/human_${releaseTime()}.txt")
+    // human-readable output file
+    resultsFile = project.file("${project.rootDir}/reports/jmh/results_${releaseTime()}.txt")
+    // results file
+    humanOutputFile = null
+    synchronizeIterations = true // Synchronize iterations?
+    iterations = 4
+    timeUnit = 'ms' // Output time unit. Available time units are: [m, s, ms, us, ns].
+    fork = 2
+    threads = 8 // Number of worker threads to run with.
+    warmup = '1s' // Time to spend at each warmup iteration.
     warmupIterations = 2
-
     jmhVersion = '1.21'
-
 }

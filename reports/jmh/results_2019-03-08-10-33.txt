@@ -1,0 +1,4 @@
+在20个线程的情况下，adder有这10倍的效率相比atomic
+Benchmark                       Mode  Cnt       Score       Error   Units
+IntegerAddTest.testAtomicLong  thrpt    8   35266.613 ±  3532.110  ops/ms
+IntegerAddTest.testLongAdder   thrpt    8  493242.740 ± 32340.709  ops/ms

@@ -3,13 +3,15 @@ package demo;
 import org.openjdk.jmh.annotations.Benchmark;
 
 /**
+ * 实际运行结果：StringBuilder字符串拼接效率高于String直接+
  * @author LiCola
  * @date 2019-03-05
  */
-public class LockRunTest {
+public class StringAddTest {
 
   private void print(String a) {
   }
+
 
   @Benchmark
   public void testStringAdd() {
