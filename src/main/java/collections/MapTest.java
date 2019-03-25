@@ -1,4 +1,6 @@
-package collections;import com.licola.llogger.LLogger;
+package collections;
+
+import com.licola.llogger.LLogger;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -17,22 +19,22 @@ import java.util.TreeMap;
 public class MapTest {
 
   public static final void main(String[] args) {
-//    testMap();
+    testMap();
 //    testTree();
 //    testSet();
-    testLinked();
+//    testLinked();
 //    testDelete();
   }
 
   private static void testDelete() {
-    HashMap<String,Integer> hashMap=new HashMap<>();
+    HashMap<String, Integer> hashMap = new HashMap<>();
 
-    hashMap.put("10",10);
-    hashMap.put("20",20);
-    hashMap.put("30",30);
+    hashMap.put("10", 10);
+    hashMap.put("20", 20);
+    hashMap.put("30", 30);
 
     Iterator<Entry<String, Integer>> iterator = hashMap.entrySet().iterator();
-    while (iterator.hasNext()){
+    while (iterator.hasNext()) {
       Entry<String, Integer> entry = iterator.next();
 
       iterator.remove();
@@ -43,12 +45,12 @@ public class MapTest {
     LLogger.d(hashMap.isEmpty());
   }
 
-  private static abstract class EmptyBase{
+  private static abstract class EmptyBase {
 
   }
 
   private static void testLinked() {
-    LinkedHashMap<String,Integer> accessOrderMap=new LinkedHashMap<>(16,0.75f,true);
+    LinkedHashMap<String, Integer> accessOrderMap = new LinkedHashMap<>(16, 0.75f, true);
 
     accessOrderMap.put("c", 100);
     accessOrderMap.put("d", 200);
@@ -57,39 +59,39 @@ public class MapTest {
     accessOrderMap.put("d", 300);
     LLogger.d("访问有序");
     for (Entry<String, Integer> entry : accessOrderMap.entrySet()) {
-      LLogger.d(entry.getKey(),entry.getValue());
+      LLogger.d(entry.getKey(), entry.getValue());
     }
 
-    LinkedHashMap<String,Integer> putOrderMap=new LinkedHashMap<>();
+    LinkedHashMap<String, Integer> putOrderMap = new LinkedHashMap<>();
 
-    putOrderMap.put("a",100);
-    putOrderMap.put("b",200);
-    putOrderMap.put("c",300);
+    putOrderMap.put("a", 100);
+    putOrderMap.put("b", 200);
+    putOrderMap.put("c", 300);
 
     LLogger.d("插入有序");
     for (Entry<String, Integer> entry : putOrderMap.entrySet()) {
-      LLogger.d(entry.getKey(),entry.getValue());
+      LLogger.d(entry.getKey(), entry.getValue());
     }
 
   }
 
   private static void testSet() {
-    HashSet<String> stringSet=new HashSet<>();
+    HashSet<String> stringSet = new HashSet<>();
     for (int i = 0; i < 10; i++) {
-      stringSet.add("set"+i);
+      stringSet.add("set" + i);
     }
     boolean contains = stringSet.contains("");
     for (String s : stringSet) {
-      LLogger.d("traverse："+s);
+      LLogger.d("traverse：" + s);
     }
   }
 
   private static void testTree() {
     TreeMap<String, Integer> map;
-    map= new TreeMap<>();
+    map = new TreeMap<>();
 //     map= new TreeMap<>(collections.reverseOrder());//逆序 传入容器集合类的反向比较器
 //    map = new HashMap<>();
-    for (int i = 9; i >=0; i--) {
+    for (int i = 9; i >= 0; i--) {
       map.put("key" + i, i);
     }
 
@@ -106,6 +108,7 @@ public class MapTest {
   }
 
   private static class SameHash {
+
     int index;
 
     public SameHash(int index) {
@@ -132,13 +135,11 @@ public class MapTest {
 
   private static void testMap() {
 
-    HashMap<Integer,String> hashMap=new HashMap<>();
-
+    HashMap<Integer, String> hashMap = new HashMap<>();
 
     for (int i = 0; i < 64; i++) {
-      hashMap.put(i,"time:"+i);
+      hashMap.put(i, "time:" + i);
     }
-
 
 //    HashMap<SameHash,String> map=new HashMap<>();
 //    for (int i = 0; i < 128; i++) {
@@ -153,14 +154,14 @@ public class MapTest {
 //    overEqualsStringHashMap.put(overEquals,"o10");
 //    overEqualsStringHashMap.put(new OverEquals(10),"o20");
 
-
   }
 
-  public static class OverHashMap<K extends OverEquals,V> extends HashMap<K,V>{
+  public static class OverHashMap<K extends OverEquals, V> extends HashMap<K, V> {
 
   }
 
   public static class OverEquals {
+
     public int value;
 
     public OverEquals(int value) {
@@ -174,7 +175,7 @@ public class MapTest {
 
     @Override
     public boolean equals(Object obj) {
-      LLogger.d("over method equals invoke:"+obj);
+      LLogger.d("over method equals invoke:" + obj);
       return true;
     }
 

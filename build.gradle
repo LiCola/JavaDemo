@@ -78,7 +78,7 @@ static def releaseTime() {
 //Gradle侧栏
 //先clean清理-jmhCompileGeneratedClasses生成测试代码-jmh执行测试代码
 jmh {
-    include = ['demo\\.IntegerAddTest\\.*']
+    include = ['demo\\.EqualTest\\.*']
 //    include = ['demo\\.StringAddTest\\.*']
     benchmarkMode = ['thrpt']
 // Benchmark mode. Available modes are: [Throughput/thrpt, AverageTime/avgt, SampleTime/sample, SingleShotTime/ss, All/all]

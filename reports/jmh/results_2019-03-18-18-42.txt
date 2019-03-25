@@ -1,0 +1,3 @@
+Benchmark               Mode  Cnt        Score        Error   Units
+EqualTest.testInteger  thrpt    8  6163849.323 ± 359710.208  ops/ms
+EqualTest.testString   thrpt    8  6240968.307 ± 278067.743  ops/ms
