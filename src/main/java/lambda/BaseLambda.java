@@ -20,12 +20,12 @@ public class BaseLambda {
         return pathname.isHidden();
       }
     });
-    LLogger.d(files);
+    LLogger.d((Object[]) files);
 
     //java8的方法引用::语法，把这个方法作为值 传递给方法
     File[] hiddenFiles = new File(".").listFiles(File::isHidden);
 
-    LLogger.d(hiddenFiles);
+    LLogger.d((Object[]) hiddenFiles);
 
     List<File> filter = filter(new File(".").listFiles(), BaseLambda::isHidden);
     List<File> filter2 = filter(new File(".").listFiles(), (File file) -> file.isHidden());

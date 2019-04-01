@@ -26,8 +26,8 @@ public class FinallyTest {
        */
     } finally {
       a = 40;
+      return a;
     }
 
-    return a;
   }
 }

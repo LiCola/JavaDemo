@@ -1,5 +1,6 @@
-package collections;import com.licola.llogger.LLogger;
+package collections;
 
+import com.licola.llogger.LLogger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -22,6 +23,9 @@ public class ArraysTest {
     for (Object o : list) {
       LLogger.d(o.toString());
     }
+
+    LinkedList<String> linkedList=new LinkedList<>();
+    linkedList.add("123");
   }
 
   private static void testStrings() {
