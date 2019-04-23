@@ -30,6 +30,11 @@ public class ProgressInterceptor implements Interceptor {
 
           @Override
           public void update(long bytesRead, long contentLength, boolean done) {
+
+            if (contentLength<=-1){
+              return;
+            }
+
             long step = contentLength / 100;
             int newProgress = (int) (bytesRead / step);
             if (newProgress == progress) {

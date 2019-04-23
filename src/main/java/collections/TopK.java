@@ -1,7 +1,5 @@
 package collections;
 
-import com.licola.llogger.LLogger;
-
 import java.util.Collection;
 import java.util.PriorityQueue;
 
@@ -27,14 +25,17 @@ public class TopK<E> {
   }
 
   public void add(E e) {
-    if (priorityQueue.size() < k) {//还有空间直接存入
+    if (priorityQueue.size() < k) {
+      //还有空间直接存入 堆内对数据关系进行维护 最小值在堆顶（根）
       priorityQueue.add(e);
       return;
     }
 
+    //取出当前堆的最小值
     Comparable<? super E> head = (Comparable<? super E>) priorityQueue.peek();
     if (head.compareTo(e) > 0) {
-      //小于堆的的最小值(最小堆的根，即堆内的最小元素） 如果大于新增元素 说明新增元素并不是前K个元素 直返返回
+      //堆的的最小值(最小堆的根，即堆内的最小元素） 大于新增元素
+      //说明新增元素并不是前K个元素 直返返回
       return;
     }
 

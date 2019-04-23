@@ -1,4 +1,5 @@
-package io;import com.licola.llogger.LLogger;
+package io;
+
 import com.licola.llogger.LLogger;
 import java.io.File;
 import java.io.IOException;
@@ -16,15 +17,19 @@ public class OkioTest {
   private static final char lineBreak = '\n';
 
   public static final void main(String[] args) throws IOException {
-    File file = new File("./src/main/java/io/OkioData.txt");
+
+    LLogger.init();
+
+//    File file = new File("./src/main/java/io/OkioData.txt");
+    File file = new File("./src/main/java/io/bytes.txt");
     if (!file.exists()) {
       boolean newFile = file.createNewFile();
     }
 //    writeFile(file);
-//    readFile(file);
+    readFile(file);
 
-    File fileDest = new File("./src/main/java/io/OkioDataCopy.txt");
-    copyFile(file, fileDest);
+//    File fileDest = new File("./src/main/java/io/OkioDataCopy.txt");
+//    copyFile(file, fileDest);
   }
 
   private static void copyFile(File srcFile, File destFile) throws IOException {
@@ -40,10 +45,10 @@ public class OkioTest {
   private static void readFile(File file) throws IOException {
     Source source = Okio.source(file);
     BufferedSource bufferedSource = Okio.buffer(source);
-    String line1 = bufferedSource.readUtf8Line();
-    LLogger.d("line1:" + line1);
-    String line2 = bufferedSource.readUtf8LineStrict();
-    LLogger.d("line2:" + line2);
+    byte[] readByte = bufferedSource.readByteArray();
+    LLogger.d(new String(readByte));
+//    String line2 = bufferedSource.readUtf8LineStrict();
+//    LLogger.d("line2:" + line2);
 
   }
 

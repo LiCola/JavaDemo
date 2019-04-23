@@ -10,6 +10,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONObject;
 
 /**
  * Created by LiCola on 2018/3/1.
@@ -39,6 +40,7 @@ public class SerializeTest {
     } finally {
       outputStream.close();
     }
+
   }
 
   public static List<TargetClass> readTargetList() throws IOException, ClassNotFoundException {

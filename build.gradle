@@ -30,7 +30,7 @@ dependencies {
     implementation 'com.google.guava:guava:18.0'
 
     //日志库
-    implementation 'com.licola:llogger:1.4.6'
+    implementation 'com.licola:llogger:1.4.9'
 
     //json
     implementation "org.json:json:20180130"

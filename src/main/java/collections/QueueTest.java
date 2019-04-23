@@ -10,8 +10,8 @@ import java.util.PriorityQueue;
 public class QueueTest {
 
   public static final void main(String[] args) {
-    testQueueSort();
-//    testPriorityQueueTopK();
+//    testQueueSort();
+    testPriorityQueueTopK();
 //    testArrayDeque();
   }
 
