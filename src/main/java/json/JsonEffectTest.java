@@ -19,6 +19,9 @@ import java.util.List;
 public class JsonEffectTest {
 
   public static final void main(String[] args) {
+
+    LLogger.init();
+
     String inputObject = readFile(new File("./src/main/java/json/config.json"));
     String inputArray = readFile(new File("./src/main/java/json/list.json"));
 
