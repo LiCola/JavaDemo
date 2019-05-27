@@ -23,7 +23,7 @@ public class MapTest {
 //    testTree();
 //    testSet();
 //    testLinked();
-//    testDelete();
+    testDelete();
   }
 
   private static void testDelete() {
@@ -39,6 +39,8 @@ public class MapTest {
 
       iterator.remove();
     }
+
+    Integer remove = hashMap.remove("30");
 
     LLogger.d(System.currentTimeMillis());
 

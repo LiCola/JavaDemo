@@ -8,9 +8,11 @@ import okhttp3.Cache;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.ConnectionPool;
+import okhttp3.FormBody;
 import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.Buffer;
@@ -22,12 +24,14 @@ public class OkHttpTest {
 
   public static final void main(String[] args) {
 
+    LLogger.init();
+
     OkHttpClient client = makeOkHttpClient();
 
-//    RequestBody requestBody= new FormBody.Builder()
-//        .addEncoded("user_id","1")
-//        .addEncoded("token","123")
-//        .build();
+    RequestBody requestBody= new FormBody.Builder()
+        .addEncoded("username","wxid_qajpvoh4cp1222")
+        .addEncoded("password","lhb123lihaibin")
+        .build();
 
     Request request = new Request.Builder()
 //        .url("http://square.github.io/okhttp/")
@@ -35,8 +39,9 @@ public class OkHttpTest {
 //        .url("http://www.google.com/")
 //        .url("http://chileme.d0575.net/user/other?user_id=1")
 //        .url("http://chileme.d0575.net/user/other")
-        .url("https://uboxs-img.oss-cn-hangzhou.aliyuncs.com/hbc.zip")
-//        .post(requestBody)
+//        .url("https://uboxs-img.oss-cn-hangzhou.aliyuncs.com/hbc.zip")
+        .url("http://192.168.2.91:4543/Host/login")
+        .post(requestBody)
         .build();
 
 //    try {
@@ -65,6 +70,7 @@ public class OkHttpTest {
         LLogger.d(headers);
 //        LLogger.d(response.body().byteStream());
         String string = response.body().string();
+        LLogger.d(string);
         LLogger.d("网络流读取结束");
       }
     });
@@ -81,9 +87,9 @@ public class OkHttpTest {
 
     return new OkHttpClient.Builder()
         //        .addInterceptor(new MyInterceptor())
-        .addInterceptor(new NetHandlerErrorInterceptor())
+//        .addInterceptor(new NetHandlerErrorInterceptor())
 //        .addNetworkInterceptor(new NetworkErrorInterceptor())
-        .addInterceptor(new ProgressInterceptor())
+//        .addInterceptor(new ProgressInterceptor())
         .cache(new Cache(cacheDir, 1024))
         .build();
   }
