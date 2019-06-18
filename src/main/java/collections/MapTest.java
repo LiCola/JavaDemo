@@ -19,10 +19,13 @@ import java.util.TreeMap;
 public class MapTest {
 
   public static final void main(String[] args) {
+
+    LLogger.init();
+
     testMap();
 //    testTree();
 //    testSet();
-//    testLinked();
+    testLinked();
     testDelete();
   }
 
@@ -52,28 +55,38 @@ public class MapTest {
   }
 
   private static void testLinked() {
+    /**
+     * 构造访问有序的LinkedHashMap，即访问方法get/put都会让对应的键值对移到链表末尾
+     */
     LinkedHashMap<String, Integer> accessOrderMap = new LinkedHashMap<>(16, 0.75f, true);
 
     accessOrderMap.put("c", 100);
     accessOrderMap.put("d", 200);
     accessOrderMap.put("a", 500);
-//    accessOrderMap.get("c");
+    accessOrderMap.get("c");
     accessOrderMap.put("d", 300);
     LLogger.d("访问有序");
     for (Entry<String, Integer> entry : accessOrderMap.entrySet()) {
       LLogger.d(entry.getKey(), entry.getValue());
     }
 
+    /**
+     * 默认构造 以及几个简单的构造方法，即都不指定访问顺序的构造方法，默认都是插入有序的，即先插入的在前面
+     */
     LinkedHashMap<String, Integer> putOrderMap = new LinkedHashMap<>();
 
     putOrderMap.put("a", 100);
     putOrderMap.put("b", 200);
     putOrderMap.put("c", 300);
+    putOrderMap.put("a", 400);
 
     LLogger.d("插入有序");
     for (Entry<String, Integer> entry : putOrderMap.entrySet()) {
       LLogger.d(entry.getKey(), entry.getValue());
     }
+
+    putOrderMap.containsValue(100);
+    putOrderMap.containsKey("a");
 
   }
 

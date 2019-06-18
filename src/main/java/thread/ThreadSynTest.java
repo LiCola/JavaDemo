@@ -19,6 +19,8 @@ public class ThreadSynTest implements Runnable {
   }
 
   public static final void main(String[] args) throws InterruptedException {
+    LLogger.init();
+
     for (int i = 0; i < 10; i++) {
       ThreadSynTest threadSynTest = new ThreadSynTest();
       Thread thread = new Thread(threadSynTest);//1

@@ -34,10 +34,11 @@ public class StringTest {
   }
 
   private static void testWrap() {
-    String s1 = "abc";
-    StringBuffer s2 = new StringBuffer(s1);
+    StringBuilder builder = new StringBuilder();
+    builder.append("123");
 
-    LLogger.d(s1.equals(s2));
+    StringBuffer buffer=new StringBuffer();
+    buffer.append("123");
   }
 
   private static void testJoint(String value1) {

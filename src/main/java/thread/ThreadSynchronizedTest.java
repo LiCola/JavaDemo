@@ -1,4 +1,6 @@
-package thread; import com.licola.llogger.LLogger;
+package thread;
+
+import com.licola.llogger.LLogger;
 
 /**
  * Created by LiCola on 2017/8/10.
@@ -19,6 +21,9 @@ public class ThreadSynchronizedTest {
   }
 
   public static final void main(String[] args) throws InterruptedException {
+
+    LLogger.init();
+
 //    testThreadCounter();
 
     /**
@@ -27,19 +32,51 @@ public class ThreadSynchronizedTest {
 //    startThreadEachLockA();
 //    startThreadEachLockB();
 
-    testInstanceMethodLock();
+//    testInstanceMethodLock();
 
+    ThreadSynchronizedTest test = new ThreadSynchronizedTest();
+    new Thread(new Runnable() {
+      @Override
+      public void run() {
+        test.testLockInstance();
+      }
+    }).start();
+    testLockClass();
+  }
+
+  private static void testLockClass() {
+    synchronized (ThreadSynchronizedTest.class) {
+      LLogger.d("进入类锁");
+      try {
+        Thread.sleep(10000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+      LLogger.d("即将释放类锁");
+    }
+  }
+
+  private void testLockInstance() {
+    synchronized (ThreadSynchronizedTest.this) {
+      LLogger.d("进入对象锁");
+      try {
+        Thread.sleep(10000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+      LLogger.d("即将释放对象锁");
+    }
   }
 
   private static void testInstanceMethodLock() throws InterruptedException {
     ThreadSynchronizedTest synchronizedTest = new ThreadSynchronizedTest();
 
-    int size=100;
-    Thread[] threadIncreases=new Thread[size];
-    Thread[] threadReduce=new Thread[size];
+    int size = 100;
+    Thread[] threadIncreases = new Thread[size];
+    Thread[] threadReduce = new Thread[size];
 
     for (int i = 0; i < size; i++) {
-      threadIncreases[i]=new Thread(new Runnable() {
+      threadIncreases[i] = new Thread(new Runnable() {
         @Override
         public void run() {
           try {
@@ -51,7 +88,7 @@ public class ThreadSynchronizedTest {
         }
       });
 
-      threadReduce[i]=new Thread(new Runnable() {
+      threadReduce[i] = new Thread(new Runnable() {
         @Override
         public void run() {
           try {

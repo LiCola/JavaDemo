@@ -1,31 +1,39 @@
-package compiler; import com.licola.llogger.LLogger;
+package compiler;
 
 /**
  * Created by LiCola on 2017/12/8.
  */
 public class CompilerTest {
-  private static int int1 =10;
+
+  private static int int1 = 10;
 
   public static final int int0 = 1000;
-  public static final String str1 ;
+  public static final String str1;
 
   private int m;
   private long ml;
 
   static {
-    str1="123s";
+    str1 = "123s";
   }
 
   public static final void main(String[] args) {
-    LLogger.d("run time");
+  }
+
+  public static int getInt1() {
+    return int1;
+  }
+
+  public static int getInt0() {
+    return int0;
   }
 
   public int inc() {
     return m + 1;
   }
 
-  public long incLong(){
-    long result=ml++;
+  public long incLong() {
+    long result = ml++;
     return result;
   }
 
