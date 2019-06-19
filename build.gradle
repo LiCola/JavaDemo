@@ -27,6 +27,8 @@ allprojects {
 apply plugin: 'me.champeau.gradle.jmh'
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
     implementation 'com.google.guava:guava:18.0'
@@ -64,7 +66,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.3'
 
     implementation 'com.google.auto.service:auto-service:1.0-rc3'
-    //自动生成代码
+    //生成代码
     implementation 'com.squareup:javapoet:1.9.0'
 
 //    jmh 'org.openjdk.jmh:jmh-core:0.9'
