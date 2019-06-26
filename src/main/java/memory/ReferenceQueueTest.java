@@ -22,6 +22,9 @@ public class ReferenceQueueTest {
 
   public static final void main(String[] args) {
 
+
+    LLogger.init();
+
     WeakHashMap<Object, Object> weakHashMap = new WeakHashMap<>();
 
     Object value = new Object();
@@ -46,6 +49,7 @@ public class ReferenceQueueTest {
     });
     thread.setDaemon(true);
     thread.start();
+
     int SIZE = GC_SIZE;
 //    int SIZE = OOM_SIZE;
     for (int i = 0; i < SIZE; i++) {
@@ -55,6 +59,10 @@ public class ReferenceQueueTest {
       map.put(otherReference, value);
       otherReference.clear();
     }
+
+//    while (true){
+//
+//    }
 
     LLogger.d("map size:" + map.size());
   }

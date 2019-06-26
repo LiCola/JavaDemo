@@ -19,7 +19,7 @@ import javassist.NotFoundException;
  * @author LiCola
  * @date 2019-06-19
  */
-public class CreateClass {
+public class JavassistCreateClass {
 
   public static void main(String[] args)
       throws NotFoundException, CannotCompileException, IOException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
