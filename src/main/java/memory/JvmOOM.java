@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * -Xms16m -Xmx32m -XX:+HeapDumpOnOutOfMemoryError
  * 开启两个线程，一个线程会发生成OutOfMemoryError堆内存溢出
  * 另一个线程只打印表示运行状态。
  * 简单说一个线程异常退出不会影响其他线程

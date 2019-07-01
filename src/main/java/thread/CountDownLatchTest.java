@@ -10,6 +10,8 @@ import java.util.concurrent.CountDownLatch;
 public class CountDownLatchTest {
 
   public static final void main(String[] args) throws InterruptedException {
+    LLogger.init();
+
     testMainAwaitWork();
 //    testWorkAwaitMain();
   }
@@ -42,7 +44,6 @@ public class CountDownLatchTest {
       threads[i] = new Racer(latch);
       threads[i].start();
     }
-
 
     LLogger.d("main will sleep after count down");
     Thread.sleep(1000);
@@ -86,10 +87,9 @@ public class CountDownLatchTest {
         Thread.sleep((long) (Math.random() * 1000));
 
         // simulate exception
-        if (Math.random() < 0.02) {
-          throw new RuntimeException("bad luck");
-        }
-
+//        if (Math.random() < 0.02) {
+//          throw new RuntimeException("bad luck");
+//        }
 
       } catch (InterruptedException e) {
         e.printStackTrace();

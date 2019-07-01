@@ -19,9 +19,7 @@ public class ClassLoaderTest {
 //    testDiffClassLoad();
 
 
-    while (true){
 
-    }
   }
 
   private static void testDiffClassLoad() {
@@ -38,7 +36,7 @@ public class ClassLoaderTest {
     LLogger.d(classLoaderTest.getClass(),classLoaderTest.getClass().getClassLoader());
 
 
-    ClassLoader mClassLoader = new MyClassLoader();
+    MyClassLoader mClassLoader = new MyClassLoader();
 
     Object object = mClassLoader.loadClass("classload.ClassLoaderTest").newInstance();
 

@@ -23,19 +23,22 @@ public class JavassistInsertCode {
 //    TargetClass targetInstance=new TargetClass();
 //    targetInstance.print();
 
-
     ClassPool classPool = ClassPool.getDefault();
 
-    CtClass targetCtClass = classPool.get("bytecode.TargetClass");
+    CtClass targetOuterCtClass = classPool.get("bytecode.TargetClass");
 
-    CtMethod ctMethod = targetCtClass.getDeclaredMethod("print");
+    targetOuterCtClass.writeFile("./src/main/java");
+
+    CtClass targetInnerCtClass = classPool.get("bytecode.TargetClass$InnerClass");
+
+    CtMethod ctMethod = targetInnerCtClass.getDeclaredMethod("print");
     ctMethod.insertBefore("System.out.printf(\"before 字节码插入内容\\n\",null);");
     ctMethod.insertAfter("System.out.printf(\"after 字节码插入内容\\n\",null);");
 
-    targetCtClass.writeFile("./src/main/java");
-    LLogger.d(targetCtClass.toString());
+    targetInnerCtClass.writeFile("./src/main/java");
+    LLogger.d(targetInnerCtClass.toString());
 
-    Class<?> targetClassNew= targetCtClass.toClass();
+    Class<?> targetClassNew = targetInnerCtClass.toClass();
     Object targetInstanceNew = targetClassNew.getConstructor().newInstance();
     Method method = targetClassNew.getMethod("print");
     method.invoke(targetInstanceNew);
