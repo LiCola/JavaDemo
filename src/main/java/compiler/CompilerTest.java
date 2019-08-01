@@ -1,5 +1,7 @@
 package compiler;
 
+import com.licola.llogger.LLogger;
+
 /**
  * Created by LiCola on 2017/12/8.
  */
@@ -18,6 +20,10 @@ public class CompilerTest {
   }
 
   public static final void main(String[] args) {
+
+    //三目运算符 隐含的类型转换
+    Object i=1==1?new Integer(3):new Float(1);
+    LLogger.d(i);
   }
 
   public static int getInt1() {
